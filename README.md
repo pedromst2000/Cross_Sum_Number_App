@@ -106,6 +106,13 @@ If you would like to contribute to the Cross Sum Number project, please follow t
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+## :email: Contact
+
+For any questions or suggestions, feel free to contact me at:
+
+Email: [pedromst2000@gmail.com](mailto:pedromst2000@gmail.com)
+
+LinkedIn: [Pedro Teixeira](https://www.linkedin.com/in/pedromst2000)
 
 <p align="center">
  <a href="#top">Back to top</a>
