@@ -6,7 +6,7 @@ A Cross Sum Number is a simple and engaging Python project where users calculate
 
 - [Technologies / Libraries Used](#technologies--libraries-used)
 - [Getting Started](#getting-started)
-- [Running Tests](#running-tests)
+- [Running Tests](#computer-running-tests)
 - [Contributing](#contributing)
 - [License](#license)
 
