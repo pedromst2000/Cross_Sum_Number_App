@@ -2,7 +2,7 @@
 
 A Cross Sum Number is a simple and engaging Python project where users calculate the sum of the digits in a given number. This project features a user-friendly graphical interface built with the `Tkinter` library, allowing users to easily input a number and instantly see the sum of its digits.
 
-## Table of Contents 📚
+## 📚 Table of Contents 
 
 - [Technologies / Libraries Used](#technologies--libraries-used)
 - [Getting Started](#getting-started)
@@ -10,7 +10,7 @@ A Cross Sum Number is a simple and engaging Python project where users calculate
 - [Contributing](#contributing)
 - [License](#license)
 
-## Technologies / Libraries Used 🛠
+## 🛠 Technologies / Libraries Used 
 
 - [Python 3.x](https://www.python.org/)
 - [Tkinter](https://docs.python.org/3/library/tkinter.html) (for GUI)
@@ -18,7 +18,7 @@ A Cross Sum Number is a simple and engaging Python project where users calculate
 - [pytest](https://docs.pytest.org/en/stable/) (for testing)
 - [pytest-mock](https://github.com/pytest-dev/pytest-mock) (for mocking in tests)
 
-## Getting Started 🚀
+## 🚀 Getting Started 
 
 To get started with the Cross Sum Number project, follow these steps:
 
@@ -68,7 +68,7 @@ To get started with the Cross Sum Number project, follow these steps:
    - Click the "Calculate" button to see the sum of the digits.
    - The result will be displayed in `messagebox` widget of the GUI.
 
-## Running Tests 🧪
+## 🧪 Running Tests
 
 To run the tests for the Cross Sum Number run the following command in your terminal:
 
@@ -82,7 +82,7 @@ or for unittest framework:
 python3 -m unittest discover -s tests
 ```
 
-## Contributing 🤝
+## 🤝 Contributing 
 
 If you would like to contribute to the Cross Sum Number project, please follow these steps:
 
@@ -102,6 +102,6 @@ If you would like to contribute to the Cross Sum Number project, please follow t
    ```
 6. **Create a Pull Request**: Go to the original repository and create a pull request from your forked repository.
 
-## License 📄
+## 📄 License 
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
