@@ -68,7 +68,7 @@ To get started with the Cross Sum Number project, follow these steps:
    - Click the "Calculate" button to see the sum of the digits.
    - The result will be displayed in `messagebox` widget of the GUI.
 
-## 🧪 Running Tests
+## :computer: Running Tests
 
 To run the tests for the Cross Sum Number run the following command in your terminal:
 
