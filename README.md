@@ -4,11 +4,11 @@ A Cross Sum Number is a simple and engaging Python project where users calculate
 
 ## Table of Contents 
 
-- [Technologies / Libraries Used](#technologies--libraries-used)
-- [Getting Started](#getting-started)
-- [Running Tests](#computer-running-tests)
-- [Contributing](#contributing)
-- [License](#license)
+- [Technologies / Libraries Used](#hammer_and_wrench-technologies--libraries-used)
+- [Getting Started](#rocket-getting-started)
+- [Running Tests](#test_tube-running-tests)
+- [Contributing](#handshake-contributing)
+- [License](#page_facing_up-license)
 
 ## :hammer_and_wrench: Technologies / Libraries Used 
 
