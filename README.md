@@ -2,6 +2,14 @@
 
 A Cross Sum Number is a simple and engaging Python project where users calculate the sum of the digits in a given number. This project features a user-friendly graphical interface built with the `Tkinter` library, allowing users to easily input a number and instantly see the sum of its digits.
 
+## Table of Contents 📚
+
+- [Technologies / Libraries Used](#technologies--libraries-used)
+- [Getting Started](#getting-started)
+- [Running Tests](#running-tests)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Technologies / Libraries Used 🛠
 
 - [Python 3.x](https://www.python.org/)
@@ -14,53 +22,62 @@ A Cross Sum Number is a simple and engaging Python project where users calculate
 
 To get started with the Cross Sum Number project, follow these steps:
 
-1. **Clone the Repository**: 
+1. **Clone the Repository**:
    Open your terminal and run the following command to clone the repository:
+
    ```bash
    git clone https://github.com/pedromst2000/Cross_Sum_Number_App.git
    ```
 
 2. **Navigate to the Project Directory**:
-    ```bash
-    cd Cross_Sum_Number_App
-    ```
+
+   ```bash
+   cd Cross_Sum_Number_App
+   ```
 
 3. **Check Python Version**:
-    Ensure you are using Python 3.x. You can check your Python version by running:
-    ```bash
-    python --version
-    ```
-    If you have both Python 2 and Python 3 installed, you may need to use `python3` instead of `python`.
+   Ensure you are using Python 3.x. You can check your Python version by running:
+
+   ```bash
+   python --version
+   ```
+
+   If you have both Python 2 and Python 3 installed, you may need to use `python3` instead of `python`.
 
 4. **Upgrade pip**:
-    It's a good practice to ensure that `pip` is up to date. You can upgrade it by running:
-    ```bash
-    python -m pip install --upgrade pip
-    ```
+   It's a good practice to ensure that `pip` is up to date. You can upgrade it by running:
+
+   ```bash
+   python -m pip install --upgrade pip
+   ```
 
 5. **Install Required Libraries**:
-    Ensure you have Python installed on your machine. You can install the required libraries for this project using pip:
-    ```bash
-    pip install -r requirements.txt
-    ```
+   Ensure you have Python installed on your machine. You can install the required libraries for this project using pip:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 6. **Run the Application**:
-    Launch the application by running the following command:
-    ```bash
-    python main.py
-    ```
+   Launch the application by running the following command:
+   ```bash
+   python main.py
+   ```
 7. **Use the Application**:
-    - Enter a number in the input field.
-    - Click the "Calculate" button to see the sum of the digits.
-    - The result will be displayed in `messagebox` widget of the GUI.
+   - Enter a number in the input field.
+   - Click the "Calculate" button to see the sum of the digits.
+   - The result will be displayed in `messagebox` widget of the GUI.
 
 ## Running Tests 🧪
 
 To run the tests for the Cross Sum Number run the following command in your terminal:
+
 ```bash
-python -m pytest 
+python -m pytest
 ```
+
 or for unittest framework:
+
 ```bash
 python3 -m unittest discover -s tests
 ```
@@ -68,6 +85,7 @@ python3 -m unittest discover -s tests
 ## Contributing 🤝
 
 If you would like to contribute to the Cross Sum Number project, please follow these steps:
+
 1. **Fork the Repository**: Click on the "Fork" button at the top right corner of the repository page.
 2. **Create a New Branch**: Create a new branch for your feature or bug fix:
    ```bash
@@ -87,4 +105,3 @@ If you would like to contribute to the Cross Sum Number project, please follow t
 ## License 📄
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
