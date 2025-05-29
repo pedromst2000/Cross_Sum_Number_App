@@ -23,11 +23,21 @@ def test_window_geometry(app):
     assert app.window.geometry().startswith("600x400")
 
 
-
 def test_initial_vars(app):
     """Test that input_var and result_var are initialized as StringVar."""
     assert isinstance(app.input_var, tk.StringVar)
     assert isinstance(app.result_var, tk.StringVar)
+
+def test_opening_message(app):
+    """Test that the opening message is displayed."""
+    with patch("app.gui.messagebox.showinfo") as mock_showinfo:
+        app.display_opening_message()
+        mock_showinfo.assert_called_once_with(
+            "Welcome",
+            "Welcome to the Cross Sum Number application!\n"
+            "A cross sum is the sum of all digits in a number.\n"
+            "For example, the cross sum of 12345 is 1 + 2 + 3 + 4 + 5 = 15.\n"
+        )
 
 
 def test_canvas_created(app):
@@ -40,6 +50,18 @@ def test_window_resizable_false(app):
     """Test that the window is not resizable."""
     resizable_x, resizable_y = app.window.resizable()
     assert not resizable_x and not resizable_y
+
+
+def test_label_input_exists(app):
+    """Test that the input label exists and has the correct text."""
+    assert app.label_input is not None
+    assert app.label_input.cget("text") == "Enter a number:"
+
+
+def test_instruction_label_exists(app):
+    """Test that the instruction label exists and has the correct text."""
+    assert app.instruction_label is not None
+    assert app.instruction_label.cget("text") == "Press Enter or click Calculate"
 
 
 def test_button_exists(app):

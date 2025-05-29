@@ -1,4 +1,4 @@
-from tkinter import Tk, Label, Button, StringVar, Entry, messagebox, Canvas , ttk
+from tkinter import Tk, Label, Button, StringVar, Entry, messagebox, Canvas, ttk
 from app.cross_sum import show_message
 
 
@@ -68,26 +68,45 @@ class Window:
         self.canvas = Canvas(self.window, width=width, height=height)
         self.canvas.pack(fill="both", expand=True)
 
+        # Title
         self.canvas.create_text(
             width // 2,
-            50,
+            40,
             text="Cross Sum Number",
             font=("Arial", 24, "bold"),
             fill="black",
         )
 
+        # Layout configuration
+        y_start = 90
+        y_spacing = 60
+
+        # Instruction label
+        self.instruction_label = Label(
+            self.canvas,
+            text="Press Enter or click Calculate",
+            font=("Arial", 12),
+            fg="gray",
+        )
+        self.instruction_label.update_idletasks()
+        self.instruction_label.place(
+            x=(width // 2) - (self.instruction_label.winfo_reqwidth() // 2),
+            y=y_start,
+        )
+
+        # Input label
         self.label_input = Label(
             self.canvas,
             text="Enter a number:",
             font=("Arial", 14),
         )
-
-        # centering the label in the canvas
+        self.label_input.update_idletasks()
         self.label_input.place(
             x=(width // 2) - (self.label_input.winfo_reqwidth() // 2),
-            y=100,
+            y=y_start + y_spacing,
         )
 
+        # Input field
         self.input_number = Entry(
             self.canvas,
             textvariable=self.input_var,
@@ -96,12 +115,16 @@ class Window:
             borderwidth=6,
             relief="sunken",
         )
-
+        self.input_number.update_idletasks()
         self.input_number.place(
             x=(width // 2) - (self.input_number.winfo_reqwidth() // 2),
-            y=150,
+            y=y_start + 2 * y_spacing,
         )
 
+        # to focus on the input field when the window opens
+        self.input_number.focus_set()
+
+        # Calculate button
         self.button_calculate = Button(
             self.canvas,
             text="Calculate",
@@ -109,21 +132,30 @@ class Window:
             bg="lightblue",
             fg="black",
         )
-
-        # centering the button in the canvas
+        self.button_calculate.update_idletasks()
         self.button_calculate.place(
             x=(width // 2) - (self.button_calculate.winfo_reqwidth() // 2),
-            y=200,
+            y=y_start + 3 * y_spacing,
         )
 
         self.button_calculate.config(command=self.handle_calculate)
+        self.input_number.bind("<Return>", lambda event: self.handle_calculate())
 
     def handle_calculate(self):
         """
         Handle the calculate button click event.
         """
-        show_message(
-            messagebox, self.input_number.get()
+        show_message(messagebox, self.input_number.get())
+
+    def display_opening_message(self):
+        """
+        Display an opening message in the Tkinter window.
+        """
+        messagebox.showinfo(
+            "Welcome",
+            "Welcome to the Cross Sum Number application!\n"
+            "A cross sum is the sum of all digits in a number.\n"
+            "For example, the cross sum of 12345 is 1 + 2 + 3 + 4 + 5 = 15.\n"
         )
 
     def run(self):
@@ -132,4 +164,6 @@ class Window:
         """
         if self.window is None:
             self.__main__()
+        # Show the opening message after the window is initialized
+        self.window.after(100, self.display_opening_message)
         self.window.mainloop()
