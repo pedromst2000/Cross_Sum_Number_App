@@ -1,8 +1,10 @@
 from tkinter import Tk, Label, Button, StringVar, Entry, messagebox, Canvas, ttk
 from app.cross_sum import show_message
+from app.icon import get_icon_path
 
 
 class Window:
+    AppIcon : str = None
     window: Tk = None
     canvas: Canvas = None
     label_input: Label = None
@@ -12,6 +14,7 @@ class Window:
 
     def __init__(
         self,
+        AppIcon: str = None,
         window: Tk = None,
         canvas: ttk.Frame = None,
         label_input: Label = None,
@@ -23,6 +26,7 @@ class Window:
         Initialize the main class with optional parameters for window, canvas, input_var, and result_var.
         If no parameters are provided, it initializes the main window and canvas.
 
+        :param AppIcon: Path to the application icon.
         :param window: Tk instance for the main window.
         :param canvas: ttk.Frame instance for the main canvas.
         :param label_input: Label instance for the input label.
@@ -31,6 +35,7 @@ class Window:
         :param result_var: StringVar instance for the result variable.
         """
 
+        self.AppIcon = AppIcon if AppIcon is not None else "assets\icon\Icon.ico"
         self.window = window
         self.canvas = canvas
         self.label_input = label_input
@@ -44,6 +49,7 @@ class Window:
         """
 
         self.window = Tk()
+        self.window.iconbitmap(get_icon_path(self.AppIcon))  # Set the application icon.
         self.window.title("Cross Sum Number")
         width, height = 600, 400
         self.window.geometry(f"{width}x{height}")
