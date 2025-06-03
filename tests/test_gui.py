@@ -12,6 +12,18 @@ def app():
     gui_app.window.destroy()  # clean up after tests
 
 
+def test_icon_exists(app):
+    """
+    Test that the application icon exists and is set correctly.
+    """
+
+    assert hasattr(app, "AppIcon") # Check if AppIcon attribute exists
+    assert isinstance(app.AppIcon, str) # Check if AppIcon is a string
+    assert app.AppIcon.endswith(".ico")  # Check if AppIcon ends with .ico
+    assert app.AppIcon == "assets/icon/Icon.ico"  # Check if AppIcon matches the expected path
+    
+
+
 def test_window_title(app):
     """Test that the window title is set correctly."""
 
@@ -28,6 +40,7 @@ def test_initial_vars(app):
     assert isinstance(app.input_var, tk.StringVar)
     assert isinstance(app.result_var, tk.StringVar)
 
+
 def test_opening_message(app):
     """Test that the opening message is displayed."""
     with patch("app.gui.messagebox.showinfo") as mock_showinfo:
@@ -36,7 +49,7 @@ def test_opening_message(app):
             "Welcome",
             "Welcome to the Cross Sum Number application!\n"
             "A cross sum is the sum of all digits in a number.\n"
-            "For example, the cross sum of 12345 is 1 + 2 + 3 + 4 + 5 = 15.\n"
+            "For example, the cross sum of 12345 is 1 + 2 + 3 + 4 + 5 = 15.\n",
         )
 
 
