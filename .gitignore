@@ -14,4 +14,9 @@ settings.json
 ########################################
 dist/               
 build/            
-crossSum.spec      
+crossSum.spec
+
+########################################
+# Executable setup wizard file 
+########################################
+CrossSumNumber_WINDOWS_1.5_setup.exe
