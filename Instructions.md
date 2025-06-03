@@ -13,4 +13,6 @@ In this project, its created a simple program with `Tkinter` library to create a
 - [x] Validate input to ensure only numbers are accepted.
 - [x] Use a message box to display errors or results.
 - [x] Ensure the app responds appropriately to invalid entries.
-- [x] Develop unit tests to verify application functionality.
+- [x] Develop unit tests for GUI and logic components.
+- [x] Add License for the project.
+- [x] Convert the GUI App to a executable file using `PyInstaller`.
