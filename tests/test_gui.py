@@ -20,8 +20,8 @@ def test_icon_exists(app):
     assert hasattr(app, "AppIcon") # Check if AppIcon attribute exists
     assert isinstance(app.AppIcon, str) # Check if AppIcon is a string
     assert app.AppIcon.endswith(".ico")  # Check if AppIcon ends with .ico
-    assert app.AppIcon == "assets/icon/Icon.ico"  # Check if AppIcon matches the expected path
-    
+    assert app.AppIcon == "assets\\icon\\Icon.ico"  # Check if AppIcon matches the expected path
+
 
 
 def test_window_title(app):

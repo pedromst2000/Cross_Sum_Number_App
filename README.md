@@ -2,7 +2,7 @@
 
 A Cross Sum Number is a simple and engaging Python project where users calculate the sum of the digits in a given number. This project features a user-friendly graphical interface built with the `Tkinter` library, allowing users to easily input a number and instantly see the sum of its digits.
 
-## Table of Contents 
+## Table of Contents
 
 - [Technologies / Libraries Used](#hammer_and_wrench-technologies--libraries-used)
 - [Getting Started](#rocket-getting-started)
@@ -11,7 +11,7 @@ A Cross Sum Number is a simple and engaging Python project where users calculate
 - [License](#page_facing_up-license)
 - [Contact](#email-contact)
 
-## :hammer_and_wrench: Technologies / Libraries Used 
+## :hammer_and_wrench: Technologies / Libraries Used
 
 - [Python 3.x](https://www.python.org/)
 - [Tkinter](https://docs.python.org/3/library/tkinter.html) (for GUI)
@@ -19,7 +19,7 @@ A Cross Sum Number is a simple and engaging Python project where users calculate
 - [pytest](https://docs.pytest.org/en/stable/) (for testing)
 - [pytest-mock](https://github.com/pytest-dev/pytest-mock) (for mocking in tests)
 
-## :rocket: Getting Started 
+## :rocket: Getting Started
 
 To get started with the Cross Sum Number project, follow these steps:
 
@@ -61,13 +61,10 @@ To get started with the Cross Sum Number project, follow these steps:
 
 6. **Run the Application**:
    Launch the application by running the following command:
+
    ```bash
-   python main.py
+   python crossSum.py
    ```
-7. **Use the Application**:
-   - Enter a number in the input field.
-   - Click the "Calculate" button to see the sum of the digits.
-   - The result will be displayed in `messagebox` widget of the GUI.
 
 ## :test_tube: Running Tests
 
@@ -83,7 +80,18 @@ or for unittest framework:
 python3 -m unittest discover -s tests
 ```
 
-## :handshake: Contributing 
+finally to run the tests with coverage, you can use:
+
+```bash
+python -m pytest --cov=src --cov-report=html
+```
+
+or to check the results in the terminal:
+```bash
+python run_tests.py
+```
+
+## :handshake: Contributing
 
 If you would like to contribute to the Cross Sum Number project, please follow these steps:
 
@@ -103,7 +111,7 @@ If you would like to contribute to the Cross Sum Number project, please follow t
    ```
 6. **Create a Pull Request**: Go to the original repository and create a pull request from your forked repository.
 
-## :page_facing_up: License 
+## :page_facing_up: License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
