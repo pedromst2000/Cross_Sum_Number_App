@@ -30,13 +30,26 @@ jobs:
       - name: Create temporary certificate (self-signed)
         run: |
           New-SelfSignedCertificate -Type CodeSigningCert -Subject "CN=CrossSum Dev" -CertStoreLocation "Cert:\CurrentUser\My"
+        shell: powershell
+
+      - name: Locate signtool.exe
+        id: find-signtool
+        shell: powershell
+        run: |
+          $path = Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\bin" -Recurse -Filter signtool.exe `
+            | Where-Object { $_.FullName -match 'x64\\signtool.exe$' } `
+            | Select-Object -First 1 -ExpandProperty FullName
+          echo "signtool=$path" >> $env:GITHUB_OUTPUT
 
       - name: Sign the executable
         run: |
           $cert = Get-ChildItem Cert:\CurrentUser\My | Where-Object { $_.Subject -eq "CN=CrossSum Dev" }
           $certPath = "$env:TEMP\cert.cer"
           Export-Certificate -Cert $cert -FilePath $certPath
-          signtool sign /n "CrossSum Dev" /fd sha256 /tr http://timestamp.digicert.com /td sha256 dist\crossSum\crossSum.exe
+
+          $signtool = "${{ steps.find-signtool.outputs.signtool }}"
+          & "$signtool" sign /n "CrossSum Dev" /fd sha256 /tr http://timestamp.digicert.com /td sha256 dist\crossSum\crossSum.exe
+        shell: powershell
 
       - name: Compress compiled files
         run: Compress-Archive -Path dist\crossSum\* -DestinationPath crosssum-windows.zip
