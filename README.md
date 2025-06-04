@@ -68,27 +68,22 @@ To get started with the Cross Sum Number project, follow these steps:
 
 ## :test_tube: Running Tests
 
-To run the tests for the Cross Sum Number run the following command in your terminal:
+To run the tests for the Cross Sum Number you can run the following commands in your terminal:
 
 ```bash
 python -m pytest
+```
+
+or
+
+```bash
+python run_tests.py
 ```
 
 or for unittest framework:
 
 ```bash
 python3 -m unittest discover -s tests
-```
-
-finally to run the tests with coverage, you can use:
-
-```bash
-python -m pytest --cov=src --cov-report=html
-```
-
-or to check the results in the terminal:
-```bash
-python run_tests.py
 ```
 
 ## :handshake: Contributing
