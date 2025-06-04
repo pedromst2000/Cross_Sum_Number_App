@@ -1,0 +1,48 @@
+name: Build and Sign CrossSum App
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Code Checkout 
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller
+
+      - name: Build with PyInstaller
+        run: |
+          pyinstaller crossSum.py ^
+            --name crossSum ^
+            --windowed ^
+            --onedir ^
+            --noupx ^
+            --icon=assets/icon/icon.ico ^
+            --add-data "assets/icon;assets/icon"
+
+      - name: Creates a temporary certificate (self-signed)
+        run: |
+          New-SelfSignedCertificate -Type CodeSigningCert -Subject "CN=CrossSum Dev" -CertStoreLocation "Cert:\CurrentUser\My"
+
+      - name: Signs the executable
+        run: |
+          $cert = Get-ChildItem Cert:\CurrentUser\My | Where-Object { $_.Subject -eq "CN=CrossSum Dev" }
+          $certPath = "$env:TEMP\cert.cer"
+          Export-Certificate -Cert $cert -FilePath $certPath
+          signtool sign /n "CrossSum Dev" /fd sha256 /tr http://timestamp.digicert.com /td sha256 dist\crossSum\crossSum.exe
+
+      - name: Compress the compile files
+        run: Compress-Archive -Path dist\crossSum\* -DestinationPath crosssum-windows.zip
+
+      - name: Saves the artefact
+        uses: actions/upload-artifact@v3
+        with:
+          name: crosssum-windows
+          path: crosssum-windows.zip
