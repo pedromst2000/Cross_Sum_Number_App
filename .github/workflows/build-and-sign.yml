@@ -42,7 +42,7 @@ jobs:
         run: Compress-Archive -Path dist\crossSum\* -DestinationPath crosssum-windows.zip
 
       - name: Save artefact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: crosssum-windows
           path: crosssum-windows.zip
