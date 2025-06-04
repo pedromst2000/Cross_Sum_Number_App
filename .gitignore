@@ -20,3 +20,8 @@ crossSum.spec
 # Executable setup wizard file 
 ########################################
 CrossSumNumber_WINDOWS_1.5_setup.exe
+
+########################################
+# virtual environment folder
+########################################
+venv/
