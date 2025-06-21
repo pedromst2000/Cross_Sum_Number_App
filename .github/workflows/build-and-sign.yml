@@ -53,7 +53,7 @@ jobs:
         shell: powershell
 
       - name: Compress compiled files
-        run: Compress-Archive -Path dist\crossSum\* -DestinationPath crosssum-windows.zip
+        run: Compress-Archive -Path dist\* -DestinationPath crosssum-windows.zip
         shell: powershell
 
       - name: Save artefact
