@@ -25,7 +25,8 @@ jobs:
             --onedir `
             --noupx `
             --icon=assets/icon/icon.ico `
-            --add-data "assets/icon;assets/icon"
+            --add-data "assets/icon/icon.ico;assets/icon"
+        shell: powershell
 
       - name: Create temporary certificate (self-signed)
         run: |
@@ -39,7 +40,7 @@ jobs:
           $path = Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\bin" -Recurse -Filter signtool.exe `
             | Where-Object { $_.FullName -match 'x64\\signtool.exe$' } `
             | Select-Object -First 1 -ExpandProperty FullName
-          echo "signtool=$path" >> $env:GITHUB_OUTPUT
+          "signtool=$path" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
       - name: Sign the executable
         run: |
@@ -48,11 +49,12 @@ jobs:
           Export-Certificate -Cert $cert -FilePath $certPath
 
           $signtool = "${{ steps.find-signtool.outputs.signtool }}"
-          & "$signtool" sign /n "CrossSum Dev" /fd sha256 /tr http://timestamp.digicert.com /td sha256 dist\crossSum\crossSum.exe
+          & "$signtool" sign /n "CrossSum Dev" /fd sha256 /tr http://timestamp.digicert.com /td sha256 "dist/crossSum/crossSum.exe"
         shell: powershell
 
       - name: Compress compiled files
         run: Compress-Archive -Path dist\crossSum\* -DestinationPath crosssum-windows.zip
+        shell: powershell
 
       - name: Save artefact
         uses: actions/upload-artifact@v4
