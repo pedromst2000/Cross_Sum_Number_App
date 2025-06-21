@@ -25,7 +25,7 @@ jobs:
             --onedir `
             --noupx `
             --icon=assets/icon/icon.ico `
-            --add-data "assets/icon/icon.ico;assets/icon"
+            --add-data "assets/icon;assets/icon"
         shell: powershell
 
       - name: Create temporary certificate (self-signed)

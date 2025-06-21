@@ -35,7 +35,7 @@ class Window:
         :param result_var: StringVar instance for the result variable.
         """
 
-        self.AppIcon = AppIcon if AppIcon is not None else "assets\\icon\\icon.ico"
+        self.AppIcon = AppIcon if AppIcon is not None else "assets/icon/icon.ico"
         self.window = window
         self.canvas = canvas
         self.label_input = label_input

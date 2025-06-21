@@ -11,9 +11,6 @@ def get_icon_path(relative_path: str) -> str:
     :return: Absolute path to the icon file.
     """
 
-    try:
-        base_path = sys._MEIPASS2
-    except Exception:
-        base_path = os.path.abspath(".")
-    
+    base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
+
     return os.path.join(base_path, relative_path)
