@@ -22,10 +22,10 @@ jobs:
           pyinstaller crossSum.py `
             --name crossSum `
             --windowed `
-            --onedir `
+            --onefile `
             --noupx `
             --icon=assets/icon/icon.ico `
-            --add-data "assets/icon;assets/icon"
+            --add-data="assets/icon/icon.ico"
         shell: powershell
 
       - name: Create temporary certificate (self-signed)
