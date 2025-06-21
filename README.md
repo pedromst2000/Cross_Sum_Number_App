@@ -115,7 +115,8 @@ In the following link you can download the Cross Sum Number executable:
 
 https://github.com/pedromst2000/Cross_Sum_Number_App/releases/tag/v1.0.0
 
-Within the release's `**Assets**` section, you will find a `ZIP` file containing the standalone executable. Simply download and extract it to run the application on your machine—no need to install Python or any additional dependencies.
+Within the release's **`Assets`** section, you will find a **`ZIP`** file **`crosssum-windows.zip`**
+ containing the standalone executable. Simply download and extract it to run the application on your machine—no need to install Python or any additional dependencies.
 
 ## :handshake: Contributing
 
