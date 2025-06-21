@@ -7,7 +7,7 @@ A Cross Sum Number is a simple and engaging Python project where users calculate
 - [Technologies / Libraries Used](#hammer_and_wrench-technologies--libraries-used)
 - [Getting Started](#rocket-getting-started)
 - [Running Tests](#test_tube-running-tests)
-- [Compiler](#cross_sum_number-compiler)
+- [Compiler](#computer-cross-sum-number-compiler)
 - [Download Executable](#cross_sum_number-download-executable)
 - [Contributing](#handshake-contributing)
 - [License](#page_facing_up-license)
@@ -109,7 +109,7 @@ To compile the Cross Sum Number application into an executable, you can use `PyI
    This command will create a standalone executable in the `dist` directory. From there, you can run the application without needing to have Python installed on the target machine.
 
 
-##  :link: Cross Sum Number Download Executable
+##  :link: Download Executable
 
 In the following link you can download the Cross Sum Number executable:
 
