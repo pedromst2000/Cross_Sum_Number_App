@@ -52,12 +52,8 @@ jobs:
           & "$signtool" sign /n "CrossSum Dev" /fd sha256 /tr http://timestamp.digicert.com /td sha256 "dist/crossSum.exe"
         shell: powershell
 
-      - name: Compress compiled files
-        run: Compress-Archive -Path dist\* -DestinationPath crosssum-windows.zip
-        shell: powershell
-
-      - name: Save artefact
+      - name: Upload signed executable
         uses: actions/upload-artifact@v4
         with:
           name: crosssum-windows
-          path: crosssum-windows.zip
+          path: dist/crossSum.exe
