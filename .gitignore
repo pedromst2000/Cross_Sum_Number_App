@@ -25,3 +25,9 @@ CrossSumNumber_WINDOWS_1.5_setup.exe
 # virtual environment folder
 ########################################
 venv/
+
+########################################
+# post_build_cleanup script
+########################################
+
+post_build_cleanup.py
