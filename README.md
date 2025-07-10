@@ -99,6 +99,12 @@ To compile the Cross Sum Number application into an executable, you can use `PyI
    pip install pyinstaller
    ```
 
+   or upgrade for the latest version to avoid potential issues will compiling:
+
+   ```bash
+   pip install --upgrade pyinstaller
+   ```
+
 2. **Compile the Application**:
    You can compile the application by running the following command:
 
