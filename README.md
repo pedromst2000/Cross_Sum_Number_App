@@ -1,14 +1,13 @@
 # Cross Sum Number
 
-A Cross Sum Number is a simple and engaging Python project where users calculate the sum of the digits in a given number. This project features a user-friendly graphical interface built with the `Tkinter` library, allowing users to easily input a number and instantly see the sum of its digits.
+A Cross Sum Number is a simple and engaging Python app where users calculate the sum of the digits in a given number. This project features a user-friendly graphical interface built with the `Tkinter` library, allowing users to easily input a number and instantly see the sum of its digits.
 
 ## Table of Contents
 
 - [Technologies / Libraries Used](#hammer_and_wrench-technologies--libraries-used)
 - [Getting Started](#rocket-getting-started)
 - [Running Tests](#test_tube-running-tests)
-- [Compiler](#cross_sum_number-compiler)
-- [Download Executable](#cross_sum_number-download-executable)
+- [Compiler](#computer-cross-sum-number-compiler)
 - [Contributing](#handshake-contributing)
 - [License](#page_facing_up-license)
 - [Contact](#email-contact)
@@ -109,20 +108,9 @@ To compile the Cross Sum Number application into an executable, you can use `PyI
    You can compile the application by running the following command:
 
    ```bash
-   pyinstaller crossSum.py --name crossSum --windowed --onefile --noupx 
-   --icon=assets/icon/icon.ico --add-data "assets/icon/icon.ico;assets/icon"
+     pyinstaller crossSum.py --noconsole --add-data "assets/icon/icon.ico;assets/icon"
    ```
    This command will create a standalone executable in the `dist` directory. From there, you can run the application without needing to have Python installed on the target machine.
-
-
-##  :link: Cross Sum Number Download Executable
-
-In the following link you can download the Cross Sum Number executable:
-
-https://github.com/pedromst2000/Cross_Sum_Number_App/releases/tag/v1.0.0
-
-Within the release's **Assets** section, you will find a ZIP file containing the standalone executable. Simply download and extract it to run the application on your machine—no need to install Python or any additional dependencies.
-
 
 ## :handshake: Contributing
 
