@@ -19,6 +19,7 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 - [PIP](https://pip.pypa.io/en/stable/) (Python package installer)
 - [pytest](https://docs.pytest.org/en/stable/) (for testing)
 - [pytest-mock](https://github.com/pytest-dev/pytest-mock) (for mocking in tests)
+- [PyInstaller](https://pyinstaller.readthedocs.io/en/stable/) (for compiling the application into an executable)
 
 ## :rocket: Getting Started
 
@@ -43,6 +44,8 @@ To get started with the Cross Sum Number project, follow these steps:
    ```bash
    python --version
    ```
+
+   > ⚠️ **Note:** You may need to install Python 3.x if it is not already installed on your system. You can download it from the [official Python website](https://www.python.org/downloads/).
 
    If you have both Python 2 and Python 3 installed, you may need to use `python3` instead of `python`.
 
@@ -91,26 +94,47 @@ python3 -m unittest discover -s tests
 
 To compile the Cross Sum Number application into an executable, you can use `PyInstaller`. Follow these steps:
 
-1. **Install PyInstaller**:
-   If you haven't already installed PyInstaller, you can do so using pip:
+1. **Create virtual environment** (optional but recommended):
+   Creating a virtual environment is optional but highly recommended. It helps isolate your project's dependencies, preventing conflicts with other Python packages and ensuring a smoother compilation process. To set up a virtual environment with `Python 3.11`, run:
 
    ```bash
-   pip install pyinstaller
+   py -3.11 -m venv venv
    ```
 
-   or upgrade for the latest version to avoid potential issues will compiling:
+   > ⚠️ **Note:** For best results, use Python 3.11 in a virtual environment when compiling. PyInstaller 5.10.1 is required for compatibility; newer versions may not work properly with Python 3.11 and can change the build structure (e.g., adding an `_internal` folder), which complicates the final `dist/` output and may lead to issues with the executable.
+
+2. **Activate the virtual environment**:
+
+   - On Windows:
+     ```bash
+     venv\Scripts\activate
+     ```
+   - On macOS/Linux:
+     ```bash
+     source venv/bin/activate
+     ```
+
+3. **Install dependencies**:
+   Make sure you have the required dependencies installed in your virtual environment. You can install them using:
 
    ```bash
-   pip install --upgrade pyinstaller
+   pip install -r dev-requirements.txt
    ```
 
-2. **Compile the Application**:
-   You can compile the application by running the following command:
+   > ⚠️ **Note:** Before proceeding, ensure that you have the correct version of `PyInstaller` installed and `python` in the virtual environment.
+
+4. **Compile the application**:
+   Run the following command in your activated virtual environment to compile the application:
 
    ```bash
-     pyinstaller crossSum.py --noconsole --add-data "assets/icon/icon.ico;assets/icon"
+   pyinstaller crossSum.py ^
+   --noconsole ^
+   --add-data "assets/icon/icon.ico;assets/icon" ^
+   --distpath dist ^
+   --workpath build ^
+   --specpath . ^
+   --name crossSum
    ```
-   This command will create a standalone executable in the `dist` directory. From there, you can run the application without needing to have Python installed on the target machine.
 
 ## :handshake: Contributing
 
