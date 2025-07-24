@@ -24,8 +24,8 @@ jobs:
 
       - name: Install Inno Setup
         run: |
-          Invoke-WebRequest -Uri "https://jrsoftware.org/download.php/is.exe" -OutFile "is.exe"
-          Start-Process .\is.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- -Wait
+           Invoke-WebRequest -Uri "https://jrsoftware.org/download.php/is.exe" -OutFile "is.exe"
+           Start-Process -FilePath ".\is.exe" -ArgumentList "/VERYSILENT", "/SUPPRESSMSGBOXES", "/NORESTART", "/SP-" -Wait
         shell: powershell
 
       - name: Build executable with PyInstaller
