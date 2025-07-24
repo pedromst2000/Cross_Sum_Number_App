@@ -50,11 +50,11 @@ jobs:
           Export-Certificate -Cert $cert -FilePath $certPath
 
           $signtool = "${{ steps.find-signtool.outputs.signtool }}"
-          & "$signtool" sign /n "CrossSum Dev" /fd sha256 /tr http://timestamp.digicert.com /td sha256 "dist/crossSum.exe"
+          & "$signtool" sign /n "CrossSum Dev" /fd sha256 /tr http://timestamp.digicert.com /td sha256 "dist/CrossSum/crossSum.exe"
         shell: powershell
 
       - name: Upload signed executable
         uses: actions/upload-artifact@v4
         with:
           name: crosssum-windows
-          path: dist/crossSum.exe
+          path: dist/CrossSum/crossSum.exe
