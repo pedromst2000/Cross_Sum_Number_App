@@ -116,6 +116,8 @@ To compile the Cross Sum Number application into a standalone executable, use `P
      source venv/bin/activate
      ```
 
+     > ⚠️ **Note:** To deactivate the virtual environment, simply run `deactivate` in your terminal.
+
 3. **Install dependencies**:
    Make sure you have the required dependencies installed in your virtual environment. You can install them using:
 
@@ -130,13 +132,15 @@ To compile the Cross Sum Number application into a standalone executable, use `P
 
    ```bash
    pyinstaller crossSum.py ^
-   --noconsole ^
-   --add-data "assets/icon/icon.ico;assets/icon" ^
-   --distpath dist ^
-   --workpath build ^
-   --specpath . ^
-   --name crossSum
+      --noconsole ^
+      --add-data "assets/icon/icon.ico;assets/icon" ^
+      --distpath dist ^
+      --workpath build ^
+      --specpath . ^
+      --name crossSum
    ```
+
+   > ⚠️ **Note:** After running the above command, the standalone executable will be located in the `dist` folder. To launch the application, run `crossSum.exe` from that directory.
 
 ## :handshake: Contributing
 
