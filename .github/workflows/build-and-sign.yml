@@ -29,13 +29,13 @@ jobs:
       - name: ⚙️ Compile Executable with PyInstaller
         run: |
           venv\Scripts\activate
-          pyinstaller crossSum.py ^
-            --noconsole ^
-            --add-data "assets/icon/icon.ico;assets/icon" ^
-            --distpath dist ^
-            --workpath build ^
-            --specpath . ^
-            --name crossSum
+          pyinstaller crossSum.py `
+            --noconsole `
+            --add-data "assets/icon/icon.ico;assets/icon" `
+            --distpath dist `
+            --workpath build `
+            --specpath . `
+            --name crossSum `
 
       - name: 🔐 Create self-signed certificate
         run: |
