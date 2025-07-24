@@ -2,14 +2,14 @@ name: Build and Sign CrossSum App
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-      - name: Code Checkout 
+      - name: Code Checkout
         uses: actions/checkout@v3
 
       - name: Install dependencies
@@ -19,13 +19,14 @@ jobs:
 
       - name: Build with PyInstaller
         run: |
-          pyinstaller crossSum.py `
-            --name crossSum `
-            --windowed `
-            --onefile `
-            --noupx `
-            --icon=assets/icon/icon.ico `
-            --add-data "assets/icon/icon.ico;assets/icon"
+          pyinstaller crossSum.py ^ `
+            --noconsole ^ `
+            --add-data "assets/icon/icon.ico;assets/icon" ^ `
+            --distpath dist ^ `
+            --workpath build ^ `
+            --specpath . ^ `
+            --name crossSum ^ ` "
+
         shell: powershell
 
       - name: Create temporary certificate (self-signed)
