@@ -19,13 +19,13 @@ jobs:
 
       - name: Build with PyInstaller
         run: |
-          pyinstaller crossSum.py ^ `
-            --noconsole ^ `
-            --add-data "assets/icon/icon.ico;assets/icon" ^ `
-            --distpath dist ^ `
-            --workpath build ^ `
-            --specpath . ^ `
-            --name crossSum ^ ` "
+          pyinstaller crossSum.py  `
+            --noconsole  `
+            --add-data "assets/icon/icon.ico;assets/icon"  `
+            --distpath dist  `
+            --workpath build  `
+            --specpath .  `
+            --name crossSum  `
 
         shell: powershell
 
