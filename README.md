@@ -26,11 +26,13 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 To get started with the Cross Sum Number project, follow these steps:
 
 1. **Clone the Repository**:
-   Open your terminal and run the following command to clone the repository:
+   Open your terminal (preferably using Git Bash) and execute the following command to clone the repository:
 
    ```bash
    git clone https://github.com/pedromst2000/Cross_Sum_Number_App.git
    ```
+
+   > ⚠️ **Note:** Make sure you have `git` installed on your machine. If you don't have it, you can download it from the [official Git website](https://git-scm.com/downloads).
 
 2. **Navigate to the Project Directory**:
 
@@ -92,7 +94,7 @@ python3 -m unittest discover -s tests
 
 ## :computer: Cross Sum Number Compiler
 
-To compile the Cross Sum Number application into an executable, you can use `PyInstaller`. Follow these steps:
+To compile the Cross Sum Number application into a standalone executable, use `PyInstaller` by following these steps in your terminal:
 
 1. **Create virtual environment** (optional but recommended):
    Creating a virtual environment is optional but highly recommended. It helps isolate your project's dependencies, preventing conflicts with other Python packages and ensuring a smoother compilation process. To set up a virtual environment with `Python 3.11`, run:
