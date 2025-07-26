@@ -62,7 +62,7 @@ jobs:
 
       - name: Build Setup Wizard with Inno Setup
         run: |
-          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "${{ github.workspace }}\installer.iss"
+          & "C:\Program Files (x86)\Inno Setup 6\Compil32.exe" "${{ github.workspace }}\installer.iss"
         shell: powershell
 
       - name: Confirm Setup Wizard was created
