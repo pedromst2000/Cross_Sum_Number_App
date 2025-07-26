@@ -9,34 +9,28 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Code Checkout
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: 3.11
 
-      - name: Install Python dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pyinstaller==5.10.1
-
-      - name: Install Inno Setup
-        run: |
-           Invoke-WebRequest -Uri "https://jrsoftware.org/download.php/is.exe" -OutFile "is.exe"
-           Start-Process -FilePath ".\is.exe" -ArgumentList "/VERYSILENT", "/SUPPRESSMSGBOXES", "/NORESTART", "/SP-" -Wait
-        shell: powershell
+          pip install pyinstaller
 
       - name: Build executable with PyInstaller
-        run: >
-          pyinstaller crossSum.py
-          --noconsole
-          --add-data "assets/icon/icon.ico;assets/icon"
-          --distpath dist
-          --workpath build
-          --specpath .
-          --name crossSum
+        run: |
+          pyinstaller crossSum.py `
+            --noconsole `
+            --add-data "assets/icon/icon.ico;assets/icon" `
+            --distpath dist `
+            --workpath build `
+            --specpath . `
+            --name crossSum
         shell: powershell
 
       - name: Create temporary certificate (self-signed)
@@ -56,20 +50,31 @@ jobs:
       - name: Sign the executable
         run: |
           $cert = Get-ChildItem Cert:\CurrentUser\My | Where-Object { $_.Subject -eq "CN=CrossSum Dev" }
-          $certPath = "$env:TEMP\cert.cer"
-          Export-Certificate -Cert $cert -FilePath $certPath
-
           $signtool = "${{ steps.find-signtool.outputs.signtool }}"
           & "$signtool" sign /n "CrossSum Dev" /fd sha256 /tr http://timestamp.digicert.com /td sha256 "dist/crossSum/crossSum.exe"
         shell: powershell
 
-      - name: Build Setup Wizard with Inno Setup
+      - name: Install Inno Setup
         run: |
-          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer.iss
+          Invoke-WebRequest -Uri "https://jrsoftware.org/download.php/is.exe" -OutFile "is.exe"
+          Start-Process -FilePath ".\is.exe" -ArgumentList "/VERYSILENT", "/SUPPRESSMSGBOXES", "/NORESTART", "/SP-" -Wait
         shell: powershell
 
-      - name: Upload Setup Wizard installer
+      - name: Build Setup Wizard with Inno Setup
+        run: |
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "${{ github.workspace }}\installer.iss"
+        shell: powershell
+
+      - name: Confirm Setup Wizard was created
+        run: |
+          if (!(Test-Path "Output/CrossSum_Setup.exe")) {
+            Write-Error "Setup file not found!"
+            exit 1
+          }
+        shell: powershell
+
+      - name: Upload Setup Wizard
         uses: actions/upload-artifact@v4
         with:
-          name: crosssum-installer
-          path: Output/CrossSumSetup.exe
+          name: CrossSum_Setup
+          path: Output/CrossSum_Setup.exe
