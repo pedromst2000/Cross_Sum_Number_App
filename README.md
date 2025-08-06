@@ -1,5 +1,8 @@
 # Cross Sum Number
 
+
+![Cross Sum Number](assets/icon/icon.ico)
+
 A Cross Sum Number is a simple and engaging Python app where users calculate the sum of the digits in a given number. This project features a user-friendly graphical interface built with the `Tkinter` library, allowing users to easily input a number and instantly see the sum of its digits.
 
 ## Table of Contents
@@ -26,7 +29,7 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 To get started with the Cross Sum Number project, follow these steps:
 
 1. **Clone the Repository**:
-   Open your terminal (preferably using Git Bash) and execute the following command to clone the repository:
+   Open your terminal (preferably using **Git Bash**) and execute the following command to clone the repository:
 
    ```bash
    git clone https://github.com/pedromst2000/Cross_Sum_Number_App.git
@@ -94,7 +97,9 @@ python3 -m unittest discover -s tests
 
 ## :computer: Cross Sum Number Compiler
 
-To compile the Cross Sum Number application into a standalone executable, use `PyInstaller` by following these steps in your terminal (CMD):
+To compile the Cross Sum Number application into a standalone executable, use `PyInstaller` by following these steps in your terminal (**CMD**):
+
+Run the terminal (**CMD**) inside the repository.
 
 1. **Create virtual environment** (optional but recommended):
    Creating a virtual environment is optional but highly recommended. It helps isolate your project's dependencies, preventing conflicts with other Python packages and ensuring a smoother compilation process. To set up a virtual environment with `Python 3.11`, run:
@@ -103,7 +108,7 @@ To compile the Cross Sum Number application into a standalone executable, use `P
    py -3.11 -m venv venv
    ```
 
-   > ⚠️ **Note:** For best results, use Python 3.11 in a virtual environment when compiling. PyInstaller 5.10.1 is required for compatibility; newer versions may not work properly with Python 3.11 and can change the build structure (e.g., adding an `_internal` folder), which complicates the final `dist/` output and may lead to issues with the executable. Run the terminal (CMD) in the repository with `cd Cross_Sum_Number_App`.
+   > ⚠️ **Note:** For best results, use Python 3.11 in a virtual environment when compiling. PyInstaller 5.10.1 is required for compatibility; newer versions may not work properly with Python 3.11 and can change the build structure (e.g., adding an `_internal` folder), which complicates the final `dist/` output and may lead to issues with the executable.
 
 2. **Activate the virtual environment**:
 
