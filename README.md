@@ -75,7 +75,7 @@ To get started with the Cross Sum Number project, follow these steps:
    Launch the application by running the following command:
 
    ```bash
-   python run_crossSum.py
+   python crossSum.py
    ```
 
 ## :test_tube: Running Tests
