@@ -38,7 +38,7 @@ To get started with the Cross Sum Number project, follow these steps:
    git clone https://github.com/pedromst2000/Cross_Sum_Number_App.git
    ```
 
-   > ⚠️ **Note:** Make sure you have `git` installed on your machine. If you don't have it, you can download it from the [official Git website](https://git-scm.com/downloads).
+   > ⚠️ **Note:** Ensure you have `git` installed. Download it from the [official Git website](https://git-scm.com/downloads) if needed. To open **Git Bash** on your Desktop, right-click and select `Open Git Bash here` (you may need to click `Show more options` to find this entry).
 
 2. **Navigate to the Project Directory**:
 
@@ -120,6 +120,7 @@ Run the terminal (**CMD**) inside the repository.
      venv\Scripts\activate
      ```
    - On macOS/Linux:
+
      ```bash
      source venv/bin/activate
      ```
