@@ -140,12 +140,11 @@ Run the terminal (**CMD**) inside the repository.
    Run the following command in your activated virtual environment to compile the application:
 
    ```bash
-   pyinstaller run_crossSum.py 
-      --noconsole 
-      --add-data "app/assets/icon/Icon.ico;app/assets/icon"
-      --distpath dist 
-      --workpath build
-      --specpath .
+   pyinstaller run_crossSum.py ^
+      --noconsole ^
+      --add-data "app/assets/icon/Icon.ico;app/assets/icon" ^   --distpath dist ^
+      --workpath build ^
+      --specpath . ^
       --name crossSum
    ```
 
