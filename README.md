@@ -1,7 +1,10 @@
 # Cross Sum Number
 
+<!-- image -->
 
-![Cross Sum Number](assets/icon/icon.ico)
+<p align="center">
+  <img src="assets/logo.png" alt="Cross Sum Number Icon" width="100">
+</p>
 
 A Cross Sum Number is a simple and engaging Python app where users calculate the sum of the digits in a given number. This project features a user-friendly graphical interface built with the `Tkinter` library, allowing users to easily input a number and instantly see the sum of its digits.
 
@@ -72,7 +75,7 @@ To get started with the Cross Sum Number project, follow these steps:
    Launch the application by running the following command:
 
    ```bash
-   python crossSum.py
+   python run_crossSum.pyç
    ```
 
 ## :test_tube: Running Tests
@@ -136,10 +139,9 @@ Run the terminal (**CMD**) inside the repository.
    Run the following command in your activated virtual environment to compile the application:
 
    ```bash
-   pyinstaller crossSum.py ^
+   pyinstaller run_crossSum.py ^
       --noconsole ^
-      --add-data "assets/icon/icon.ico;assets/icon" ^
-      --distpath dist ^
+      --add-data "app/assets/icon/icon.ico;app/assets/icon" ^   --distpath dist ^
       --workpath build ^
       --specpath . ^
       --name crossSum
