@@ -142,7 +142,7 @@ Run the terminal (**CMD**) inside the repository.
    ```bash
    pyinstaller run_crossSum.py ^
       --noconsole ^
-      --add-data "app/assets/icon/icon.ico;app/assets/icon" ^   --distpath dist ^
+      --add-data "app/assets/icon/Icon.ico;app/assets/icon" ^   --distpath dist ^
       --workpath build ^
       --specpath . ^
       --name crossSum
