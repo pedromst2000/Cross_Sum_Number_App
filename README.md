@@ -47,7 +47,7 @@ To get started with the Cross Sum Number project, follow these steps:
    ```
 
 3. **Check Python Version**:
-   Ensure you are using Python 3.x. You can check your Python version by running:
+   Ensure you are using the latest version of Python. You can check your Python version by running:
 
    ```bash
    python --version
