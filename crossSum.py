@@ -2,6 +2,8 @@ import os
 from app.gui import Window
 
 # MAIN file for the Cross Sum Number project.
+
+
 def run_app():
     """
     Run the GUI application for the Cross Sum Number project.

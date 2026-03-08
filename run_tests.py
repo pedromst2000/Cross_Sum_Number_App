@@ -19,7 +19,8 @@ def run_tests():
             "-p",
             "test_*.py",
         ],
-        env={**os.environ, "RUNNING_TESTS": "1"},  # Set environment variable to indicate tests are running
+        # Set environment variable to indicate tests are running
+        env={**os.environ, "RUNNING_TESTS": "1"},
     )
 
     print("\n[Info] Running tests with pytest...")
