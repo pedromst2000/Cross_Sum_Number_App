@@ -1,3 +1,5 @@
 pytest
 pytest-mock
-pyinstaller==5.10.1
+pyinstaller>=6.10.0
+flake8
+autopep8
