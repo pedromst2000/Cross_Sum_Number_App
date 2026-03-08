@@ -16,9 +16,7 @@ class TestCrossSum(unittest.TestCase):
         """Test that validate_input returns True for a valid number input."""
 
         self.assertTrue(validate_input("12345"))
-
-    def test_validate_input_invalid_empty(self):
-        """Test that validate_input returns False for an empty input."""
+        messagebox.showinfo.assert_called_with("Result", "6")
 
         self.assertFalse(validate_input(""))
 
@@ -43,6 +41,8 @@ class TestCrossSum(unittest.TestCase):
         messagebox.showinfo = MagicMock()
         show_message(messagebox, "123")
         messagebox.showinfo.assert_called_with("Result", "6")
+
+        # Removed duplicate and incorrectly indented assertion
 
     def test_show_message_invalid_empty(self):
         """Test that show_message calls showerror for empty input."""

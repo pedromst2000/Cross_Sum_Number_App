@@ -4,7 +4,7 @@ from app.icon import get_icon_path
 
 
 class Window:
-    AppIcon : str = None
+    AppIcon: str = None
     window: Tk = None
     canvas: Canvas = None
     label_input: Label = None
@@ -23,8 +23,10 @@ class Window:
         result_var: StringVar = None,
     ):
         """
-        Initialize the main class with optional parameters for window, canvas, input_var, and result_var.
-        If no parameters are provided, it initializes the main window and canvas.
+        Initialize the main class with optional parameters for window,
+        canvas, input_var, and result_var.
+        If no parameters are provided, it initializes the main window and
+        canvas.
 
         :param AppIcon: Path to the application icon.
         :param window: Tk instance for the main window.
@@ -35,7 +37,7 @@ class Window:
         :param result_var: StringVar instance for the result variable.
         """
 
-        self.AppIcon = AppIcon if AppIcon is not None else "app/assets/icon/Icon.ico"
+        self.AppIcon = AppIcon if AppIcon is not None else "app/assets/icon/" "Icon.ico"
         self.window = window
         self.canvas = canvas
         self.label_input = label_input
@@ -45,17 +47,21 @@ class Window:
 
     def __main__(self):
         """
-        This method initializes the main window and canvas if they are not already set.
+        This method initializes the main window and canvas if they are not
+        already set.
         """
 
         self.window = Tk()
-        self.window.iconbitmap(get_icon_path(self.AppIcon))  # Set the application icon.
+        # Set the application icon.
+        self.window.iconbitmap(get_icon_path(self.AppIcon))
         self.window.title("Cross Sum Number")
         width, height = 600, 400
         self.window.geometry(f"{width}x{height}")
         self.window.resizable(False, False)
-        self.window.update_idletasks()  # Update the window to get the correct dimensions.
-        screen_width = self.window.winfo_screenwidth()  # Get the width of the screen.
+        # Update the window to get the correct dimensions.
+        self.window.update_idletasks()
+        # Get the width of the screen.
+        screen_width = self.window.winfo_screenwidth()
         screen_height = (
             self.window.winfo_screenheight()
         )  # Get the height of the screen.
@@ -161,7 +167,7 @@ class Window:
             "Welcome",
             "Welcome to the Cross Sum Number application!\n"
             "A cross sum is the sum of all digits in a number.\n"
-            "For example, the cross sum of 12345 is 1 + 2 + 3 + 4 + 5 = 15.\n"
+            "For example, the cross sum of 12345 is 1 + 2 + 3 + 4 + 5 = 15.\n",
         )
 
     def run(self):
