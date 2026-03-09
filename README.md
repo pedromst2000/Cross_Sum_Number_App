@@ -83,7 +83,7 @@ To get started with the Cross Sum Number project, follow these steps:
 
 > **Note:** You can run tests and code quality checks either inside a virtual environment or globally, as long as all dependencies are installed. Using a virtual environment is recommended to avoid conflicts with system packages.
 
-> **GUI Test Skipping:** Some GUI tests (those using Tkinter) may be skipped or error if your system's Tkinter/Tcl/Tk is not properly configured. This is expected on some Windows setups or minimal Python installations. The test suite is designed to skip these tests gracefully if the environment is not suitable, so you may see skipped or inconsistent results for GUI tests. All other tests will still run and report results normally.
+> **GUI Tests:** GUI tests (those using Tkinter) use a virtual display in CI (via Xvfb) and run headlessly. Locally on Windows, they will run as long as Tkinter is properly installed. If Tkinter is not available, those tests will be skipped gracefully.
 
 To run the tests for the Cross Sum Number you can run the following commands in your terminal:
 
