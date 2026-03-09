@@ -1,13 +1,22 @@
 import pytest
 import tkinter as tk
 
+# Ensure Tcl/Tk library paths are set correctly for Tkinter in virtual environments on Windows.
+from app.utils.tkinter_env import fix_tkinter_library_paths
+
 from app.gui import Window
 
+# Patch iconbitmap at module level to avoid failures on Linux/CI where .ico files are not supported
+tk.Tk.iconbitmap = lambda *args, **kwargs: None
 
-@pytest.fixture
-def app(monkeypatch):
-    # Patch iconbitmap to avoid failures on Linux/CI where .ico files are not supported
-    monkeypatch.setattr(tk.Tk, "iconbitmap", lambda *args, **kwargs: None)
+
+fix_tkinter_library_paths()
+
+
+# Use module scope to create only ONE Tk instance for all GUI tests.
+# Tkinter does not support multiple create/destroy cycles reliably in the same process.
+@pytest.fixture(scope="module")
+def app():
     window = Window()
     window.__main__()  # Initialize the GUI
     window.window.withdraw()  # Hide the window during tests
