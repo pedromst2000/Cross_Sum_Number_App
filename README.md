@@ -16,7 +16,7 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 - [Getting Started](#getting-started)
 - [Running Tests, Linting, and Formatting](#running-tests-linting-and-formatting)
 - [Cross Sum Number Compiler](#cross-sum-number-compiler)
-- [Continuous Integration (CI/CD)](#continuous-integration-cicd)
+- [Continuous Integration (CI)](#continuous-integration-ci)
 - [Contributing](#contributing)
 - [License](#license)
 
