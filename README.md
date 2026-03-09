@@ -1,6 +1,6 @@
 <a name="top"></a>
 
-# 🚦 Cross Sum Number
+# Cross Sum Number
 
 <!-- image -->
 
