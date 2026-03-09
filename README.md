@@ -61,16 +61,40 @@ To get started with the Cross Sum Number project, follow these steps:
 
    If you have both Python 2 and Python 3 installed, you may need to use `python3` instead of `python`.
 
-4. **Install/Upgrade Dependencies**:
-   It's recommended to use a virtual environment for development. To set up and upgrade all dependencies (including pip), run:
+4. **Set Up and Activate a Virtual Environment (Recommended):**
+   Using a virtual environment is recommended to isolate dependencies and avoid conflicts.
+   - To create a virtual environment:
 
-   ```bash
-   python -m pip install --upgrade pip
-   pip install --upgrade -r dev-requirements.txt
-   pip install black  # if not already present
-   ```
+     ```bash
+     python -m venv .venv
+     ```
 
-   > ⚠️ **Note:** If you upgrade Python, always recreate your virtual environment and reinstall dependencies to avoid conflicts.
+     > ⚠️ **Note:** This command creates a new virtual environment named `.venv` in your project folder. Run it once unless you want to recreate the environment.
+
+   - To activate the virtual environment:
+     - On **Windows (CMD or PowerShell):**
+       ```bash
+       .venv\Scripts\Activate
+       ```
+     - On **macOS/Linux (Bash):**
+       ```bash
+       source .venv/bin/activate
+       ```
+
+   - Once activated, upgrade pip and install dependencies:
+
+     ```bash
+     python -m pip install --upgrade pip
+     pip install --upgrade -r dev-requirements.txt
+     ```
+
+     > ⚠️ **Note:** If you upgrade Python, always recreate your virtual environment and reinstall dependencies to avoid conflicts.
+
+   - To deactivate the virtual environment and switch back to your default (system) Python:
+     ```bash
+     deactivate
+     ```
+     > ⚠️ **Note:** After deactivating, any Python commands will use your system Python and its packages.
 
 5. **Run the Application**:
    Launch the application by running the following command:
@@ -81,11 +105,9 @@ To get started with the Cross Sum Number project, follow these steps:
 
 ## Running Tests, Linting, and Formatting
 
-> **Note:** You can run tests and code quality checks either inside a virtual environment or globally, as long as all dependencies are installed. Using a virtual environment is recommended to avoid conflicts with system packages.
+> **Note:** Use a virtual environment for best results.
 
-> **GUI Tests:** GUI tests (those using Tkinter) use a virtual display in CI (via Xvfb) and run headlessly. Locally on Windows, they will run as long as Tkinter is properly installed. If Tkinter is not available, those tests will be skipped gracefully.
-
-To run the tests for the Cross Sum Number you can run the following commands in your terminal:
+To run all tests:
 
 ```bash
 python -m pytest
@@ -112,11 +134,17 @@ or for unittest framework:
 
 To auto-format your codebase using [Black](https://black.readthedocs.io/en/stable/):
 
+First, install Black in your (virtual) environment if it is not already installed:
+
+```bash
+pip install black
+```
+
+Then run:
+
 ```bash
 black app tests crossSum.py
 ```
-
-This will automatically reformat your code to Black's style (default line length 88).
 
 ### Code Linting (flake8)
 
@@ -128,10 +156,12 @@ flake8 .
 
 **Notes:**
 
-- The `.flake8` config ignores E501 (line too long) and uses a max line length of 88 to match Black's default. Let Black handle formatting.
-- All tools (pytest, unittest, flake8, Black, etc.) work best in a virtual environment. Always activate your virtual environment before running tests or code quality checks.
+- The `.flake8` config ignores E501 (line too long) and uses a max line length of 88 to match Black's default.
+- All tools work best in a virtual environment.
 
 ### Recommended Workflow
+
+> **Note:** Always run the formatting, linting, and test commands below before committing your code. This helps prevent CI pipeline failures. If your CI fails, check the GitHub Actions tab for issues and fix them promptly.
 
 1. **Format your code:**
    ```bash
@@ -152,19 +182,32 @@ You can compile the Cross Sum Number application into a standalone executable fo
 
 > **Warning:** The generated executable is intended for use on your own machine. Running the executable on remote or other machines may trigger antivirus false positives or fail due to environment differences. Distribution is not recommended.
 
-To compile locally, follow these steps (**CMD** recommended on Windows):
+To compile locally, follow these steps:
 
 1. **Set up your environment and dependencies** (see Getting Started above).
-2. **Compile the application** (in your activated virtual environment):
+2. **Activate your virtual environment** (see instructions above).
+3. **Install PyInstaller in your virtual environment**:
    ```bash
-   pyinstaller crossSum.py \
-      --noconsole \
-      --add-data "app/assets/icon/Icon.ico;app/assets/icon" \
-      --distpath dist \
-      --workpath build \
-      --specpath . \
-      --name crossSum
+   pip install pyinstaller
    ```
+4. **Compile the application** (in your activated virtual environment):
+
+   - **On Windows (CMD or PowerShell), run as a single line:**
+     ```cmd
+     pyinstaller crossSum.py --noconsole --add-data "app/assets/icon/Icon.ico;app/assets/icon" --distpath dist --workpath build --specpath . --name crossSum
+     ```
+     > *Advanced:* In PowerShell, you can use the backtick (`) for line continuation. In CMD, use the caret (^) for line continuation.
+
+   - **On Linux/macOS (bash/zsh), you can use line continuations:**
+     ```bash
+     pyinstaller crossSum.py \
+        --noconsole \
+        --add-data "app/assets/icon/Icon.ico;app/assets/icon" \
+        --distpath dist \
+        --workpath build \
+        --specpath . \
+        --name crossSum
+     ```
    > ⚠️ **Note:** The standalone executable will be in the `dist` folder as `crossSum.exe`. Use it locally on your own machine.
 
 ## Continuous Integration (CI)
