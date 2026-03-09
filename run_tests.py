@@ -29,7 +29,7 @@ def run_tests():
             sys.executable,
             "-m",
             "pytest",
-            "tests/test_gui.py",
+            "tests/",
             "-v",
         ],
         env={**os.environ, "RUNNING_TESTS": "1"},
