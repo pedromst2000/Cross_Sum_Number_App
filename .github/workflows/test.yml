@@ -1,10 +1,10 @@
 name: Unit Tests
 
-on:
+"on":
   push:
-    branches: [master]
+    branches: ["master"]
   pull_request:
-    branches: [master]
+    branches: ["master"]
 jobs:
   pytest:
     runs-on: ubuntu-latest
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.14'
+          python-version: "3.14"
 
       # Install dependencies for linting and testing
       - name: Install dependencies

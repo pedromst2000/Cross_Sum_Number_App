@@ -29,6 +29,7 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 - [pytest-mock](https://github.com/pytest-dev/pytest-mock) (for mocking in tests)
 
 - [flake8](https://flake8.pycqa.org/en/latest/) (for code linting)
+- [yamllint](https://yamllint.readthedocs.io/en/stable/) (for YAML linting)
 - [Black](https://black.readthedocs.io/en/stable/) (for auto-formatting)
 
 ## Getting Started
@@ -146,7 +147,7 @@ Then run:
 black app tests crossSum.py
 ```
 
-### Code Linting (flake8)
+### Code Linting (flake8 & yamllint)
 
 To check code quality with flake8:
 
@@ -154,9 +155,22 @@ To check code quality with flake8:
 flake8 .
 ```
 
+To lint YAML files with yamllint:
+
+```bash
+yamllint .
+```
+
+<!-- To auto-format YAML files with yamlfmt:
+
+```bash
+yamlfmt -w .
+``` -->
+
 **Notes:**
 
 - The `.flake8` config ignores E501 (line too long) and uses a max line length of 88 to match Black's default.
+- The `.yamllint.yaml` config is used for YAML linting rules.
 - All tools work best in a virtual environment.
 
 ### Recommended Workflow
@@ -171,7 +185,13 @@ flake8 .
    ```bash
    flake8 .
    ```
-3. **Run tests:**
+3. **Lint YAML files:**
+
+   ```bash
+   yamllint .
+   ```
+
+4. **Run tests:**
    ```bash
    python -m pytest
    ```
@@ -191,12 +211,13 @@ To compile locally, follow these steps:
    pip install pyinstaller
    ```
 4. **Compile the application** (in your activated virtual environment):
-
    - **On Windows (CMD or PowerShell), run as a single line:**
+
      ```cmd
      pyinstaller crossSum.py --noconsole --add-data "app/assets/icon/Icon.ico;app/assets/icon" --distpath dist --workpath build --specpath . --name crossSum
      ```
-     > *Advanced:* In PowerShell, you can use the backtick (`) for line continuation. In CMD, use the caret (^) for line continuation.
+
+     > _Advanced:_ In PowerShell, you can use the backtick (`) for line continuation. In CMD, use the caret (^) for line continuation.
 
    - **On Linux/macOS (bash/zsh), you can use line continuations:**
      ```bash
@@ -208,7 +229,7 @@ To compile locally, follow these steps:
         --specpath . \
         --name crossSum
      ```
-   > ⚠️ **Note:** The standalone executable will be in the `dist` folder as `crossSum.exe`. Use it locally on your own machine.
+     > ⚠️ **Note:** The standalone executable will be in the `dist` folder as `crossSum.exe`. Use it locally on your own machine.
 
 ## Continuous Integration (CI)
 
