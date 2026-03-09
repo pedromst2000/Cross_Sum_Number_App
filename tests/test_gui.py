@@ -1,22 +1,18 @@
 import pytest
 import tkinter as tk
 
-
 from app.gui import Window
 
+
 @pytest.fixture
-def app():
-    try:
-        root = tk.Tk()
-        root.withdraw()  # Hide the main window during tests
-        window = Window()
-        window.__main__()  # Initialize the GUI
-        yield window
-        root.destroy()
-    except Exception:
-        pytest.skip(
-            "Tkinter/Tcl/Tk not properly installed or configured on this system."
-        )
+def app(monkeypatch):
+    # Patch iconbitmap to avoid failures on Linux/CI where .ico files are not supported
+    monkeypatch.setattr(tk.Tk, "iconbitmap", lambda *args, **kwargs: None)
+    window = Window()
+    window.__main__()  # Initialize the GUI
+    window.window.withdraw()  # Hide the window during tests
+    yield window
+    window.window.destroy()
 
 
 def test_icon_exists(app):
