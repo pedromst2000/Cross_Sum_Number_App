@@ -15,7 +15,7 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 - [📚 Technologies / Libraries Used](#-technologies--libraries-used)
 - [🚀 Getting Started](#-getting-started)
 - [🧪 Running Tests, Linting, and Formatting](#-running-tests-linting-and-formatting)
-- [🛠️ Cross Sum Number Compiler](#-cross-sum-number-compiler-local-use-only)
+- [🛠️ Cross Sum Number Compiler](#️-cross-sum-number-compiler)
 - [🔄 Continuous Integration (CI)](#-continuous-integration-ci)
 - [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
@@ -34,72 +34,41 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 
 ## 🚀 Getting Started
 
-To get started with the Cross Sum Number project, follow these steps:
+### ⚙️ Prerequisites
 
-1. **Clone the Repository**:
-   Open your terminal (preferably using **Git Bash**) and execute the following command to clone the repository:
+- **Python 3.14+** installed ([download](https://www.python.org/downloads/))
+- **pip** (comes with Python)
+- **git** (for cloning, [download](https://git-scm.com/downloads))
+- (Recommended) **Virtual environment** support: `python -m venv`
+- (Optional) **PyInstaller** for building executables
 
+> Make sure Python and pip are available in your system PATH. You can check with:
+> ```bash
+> python --version
+> pip --version
+> ```
+
+To get started:
+
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/pedromst2000/Cross_Sum_Number_App.git
-   ```
-
-   > ⚠️ **Note:** Ensure you have `git` installed. Download it from the [official Git website](https://git-scm.com/downloads) if needed. To open **Git Bash** on your Desktop, right-click and select `Open Git Bash here` (you may need to click `Show more options` to find this entry).
-
-2. **Navigate to the Project Directory**:
-
-   ```bash
    cd Cross_Sum_Number_App
    ```
-
-3. **Check Python Version**:
-   Ensure you are using Python 3.14 (or newer). You can check your Python version by running:
-
+2. **(Recommended) Create and activate a virtual environment:**
    ```bash
-   python --version
+   python -m venv .venv
+   # On Windows:
+   .venv\Scripts\Activate
+   # On macOS/Linux:
+   source .venv/bin/activate
    ```
-
-   > ⚠️ **Note:** You may need to install Python 3.14 if it is not already installed on your system. You can download it from the [official Python website](https://www.python.org/downloads/).
-
-   If you have both Python 2 and Python 3 installed, you may need to use `python3` instead of `python`.
-
-4. **Set Up and Activate a Virtual Environment (Recommended):**
-   Using a virtual environment is recommended to isolate dependencies and avoid conflicts.
-   - To create a virtual environment:
-
-     ```bash
-     python -m venv .venv
-     ```
-
-     > ⚠️ **Note:** This command creates a new virtual environment named `.venv` in your project folder. Run it once unless you want to recreate the environment.
-
-   - To activate the virtual environment:
-     - On **Windows (CMD or PowerShell):**
-       ```bash
-       .venv\Scripts\Activate
-       ```
-     - On **macOS/Linux (Bash):**
-       ```bash
-       source .venv/bin/activate
-       ```
-
-   - Once activated, upgrade pip and install dependencies:
-
-     ```bash
-     python -m pip install --upgrade pip
-     pip install --upgrade -r dev-requirements.txt
-     ```
-
-     > ⚠️ **Note:** If you upgrade Python, always recreate your virtual environment and reinstall dependencies to avoid conflicts.
-
-   - To deactivate the virtual environment and switch back to your default (system) Python:
-     ```bash
-     deactivate
-     ```
-     > ⚠️ **Note:** After deactivating, any Python commands will use your system Python and its packages.
-
-5. **Run the Application**:
-   Launch the application by running the following command:
-
+3. **Install dependencies:**
+   ```bash
+   python -m pip install --upgrade pip
+   pip install --upgrade -r dev-requirements.txt
+   ```
+4. **Run the app:**
    ```bash
    python crossSum.py
    ```
@@ -206,7 +175,7 @@ yamlfmt -w .
    python -m pytest
    ```
 
-## 🛠️ Cross Sum Number Compiler
+# 🛠️ Cross Sum Number Compiler
 
 You can compile the Cross Sum Number application into a standalone executable for your own local use using `PyInstaller`. This is useful if you want to run the app without Python installed. However, please note:
 
