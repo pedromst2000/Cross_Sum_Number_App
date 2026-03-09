@@ -2,18 +2,21 @@ import pytest
 import tkinter as tk
 
 
+from app.gui import Window
+
 @pytest.fixture
 def app():
     try:
         root = tk.Tk()
+        root.withdraw()  # Hide the main window during tests
+        window = Window()
+        window.__main__()  # Initialize the GUI
+        yield window
         root.destroy()
     except Exception:
         pytest.skip(
-            "Tkinter/Tcl/Tk not properly installed or " "configured on this system."
+            "Tkinter/Tcl/Tk not properly installed or configured on this system."
         )
-    # Placeholder for GUI app fixture
-    # This test is a placeholder and does not instantiate the GUI.
-    yield None
 
 
 def test_icon_exists(app):
