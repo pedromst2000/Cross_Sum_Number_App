@@ -1,6 +1,6 @@
 from tkinter import Tk, Label, Button, StringVar, Entry, messagebox, Canvas, ttk
 from app.cross_sum import show_message
-from app.icon import get_icon_path
+from app.utils.icon import get_icon_path
 
 
 class Window:

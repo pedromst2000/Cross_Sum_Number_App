@@ -10,6 +10,5 @@ def get_icon_path(relative_path: str) -> str:
     :param relative_path: Relative path to the icon file.
     :return: Absolute path to the icon file.
     """
-
     base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
     return os.path.join(base_path, relative_path)
