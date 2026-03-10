@@ -124,11 +124,14 @@ To check code quality with flake8:
 flake8 .
 ```
 
+
 To lint YAML files with yamllint:
 
 ```bash
 yamllint .
 ```
+
+> **Note:** All YAML files must use LF (Unix) line endings. This is enforced by the `.gitattributes` file in the repository. If you see yamllint errors about line endings, convert the file to LF in your editor before committing.
 
 <!-- To auto-format YAML files with yamlfmt:
 
