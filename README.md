@@ -242,9 +242,9 @@ To compile locally, follow these steps:
    >
    > Inside `dist/`, you will find a folder named `CrossSum`.
    >
-   > This `CrossSum` folder is a standalone, portable application.
+   > This `CrossSum` folder contains a standalone, portable application. You can move this folder anywhere on your own system (e.g., Desktop) and run `CrossSum.exe` directly—**you do not need to have Python installed to run the executable**. All necessary Python components are bundled inside.
    >
-   > You can move this folder anywhere on your system (e.g., Desktop) and run `CrossSum.exe` directly. No Python installation or repository files are required.
+   > **However, you do need Python installed to build (compile) the executable with PyInstaller.**
    >
    > ⚠️ Do not remove the `_internal` folder, as it is required for the application to function properly.
 
