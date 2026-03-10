@@ -210,8 +210,8 @@ You can compile the Cross Sum Number application into a self-contained applicati
 
 To compile locally, follow these steps:
 
-1. **Set up your environment and dependencies** (see Getting Started above).
-2. **Activate your virtual environment** (see instructions above).
+1. **Set up your environment and dependencies** (see [Getting Started](#rocket-getting-started) above).
+2. **Activate your virtual environment** (see [Getting Started](#rocket-getting-started) above).
 3. **Install PyInstaller in your virtual environment**:
    ```bash
    pip install pyinstaller
