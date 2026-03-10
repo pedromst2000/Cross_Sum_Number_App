@@ -43,6 +43,7 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 - (Optional) **PyInstaller** for building executables
 
 > Make sure Python and pip are available in your system PATH. You can check with:
+>
 > ```bash
 > python --version
 > pip --version
@@ -56,6 +57,7 @@ To get started:
    cd Cross_Sum_Number_App
    ```
 2. **(Recommended) Create and activate a virtual environment:**
+
    ```bash
    python -m venv .venv
    # On Windows:
@@ -63,11 +65,33 @@ To get started:
    # On macOS/Linux:
    source .venv/bin/activate
    ```
+
+   > **To deactivate the virtual environment:**
+   >
+   > - On any OS, simply run:
+   >   ```bash
+   >   deactivate
+   >   ```
+   >   This will return you to your system's default Python environment.
+
+   > **Note:** Some dependencies may only work correctly inside the `.venv` virtual environment. It is highly recommended to use the virtual environment for all development and testing.
+
 3. **Install dependencies:**
+
    ```bash
    python -m pip install --upgrade pip
    pip install --upgrade -r dev-requirements.txt
    ```
+
+   > **Troubleshooting:**
+   > If you see `ModuleNotFoundError` or similar errors when running the app or tests, it usually means the required dependencies are not installed in your current Python environment.
+   >
+   > - If you are **not** using the `.venv` virtual environment, you must install the dependencies in your active environment as well:
+   >   ```bash
+   >   pip install --upgrade -r dev-requirements.txt
+   >   ```
+   > - For best results, always activate the `.venv` before installing or running anything.
+
 4. **Run the app:**
    ```bash
    python crossSum.py
@@ -123,7 +147,6 @@ To check code quality with flake8:
 ```bash
 flake8 .
 ```
-
 
 To lint YAML files with yamllint:
 
