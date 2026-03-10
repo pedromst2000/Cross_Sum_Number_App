@@ -18,6 +18,7 @@ jobs:
         with:
           python-version: "3.14"
 
+      # Note: 'Cache not found' and 'Failed to save cache' messages are expected and not errors. See GitHub Actions docs for details.
       - name: Cache pip dependencies
         uses: actions/cache@v4
         with:
@@ -36,10 +37,11 @@ jobs:
         run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
 
       - name: Install and start Xvfb for GUI tests
+        # Suppress Xvfb/X11 keymap warnings, which are harmless in CI
         run: |
           sudo apt-get update
           sudo apt-get install -y xvfb
-          Xvfb :99 -screen 0 1024x768x16 &
+          Xvfb :99 -screen 0 1024x768x16 2>/dev/null &
 
       - name: Run pytest (with Xvfb)
         run: pytest
