@@ -1,26 +1,27 @@
 <a name="top"></a>
 
-# Cross Sum Number
-
 <!-- image -->
 
 <p align="center">
   <img src="assets/logo.png" alt="Cross Sum Number Icon" width="100">
 </p>
 
+<h1 align="center">Cross Sum Number</h1>
+
 A Cross Sum Number is a simple and engaging Python app where users calculate the sum of the digits in a given number. This project features a user-friendly graphical interface built with the `Tkinter` library, allowing users to easily input a number and instantly see the sum of its digits.
 
-## 📑 Table of Contents
+## :bookmark_tabs: Table of Contents
 
-- [📚 Technologies / Libraries Used](#-technologies--libraries-used)
-- [🚀 Getting Started](#-getting-started)
-- [🧪 Running Tests, Linting, and Formatting](#-running-tests-linting-and-formatting)
-- [🛠️ Cross Sum Number Compiler](#️-cross-sum-number-compiler)
-- [🔄 Continuous Integration (CI)](#-continuous-integration-ci)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
+- [:books: Technologies / Libraries Used](#books-technologies--libraries-used)
+- [:rocket: Getting Started](#rocket-getting-started)
+  - [:gear: Prerequisites](#gear-prerequisites)
+- [:test_tube: Running Tests, Linting, and Formatting](#test_tube-running-tests-linting-and-formatting)
+- [:hammer_and_wrench: Standalone Executable](#hammer_and_wrench-standalone-executable)
+- [:arrows_counterclockwise: Continuous Integration (CI)](#arrows_counterclockwise-continuous-integration-ci)
+- [:handshake: Contributing](#handshake-contributing)
+- [:page_facing_up: License](#page_facing_up-license)
 
-## 📚 Technologies / Libraries Used
+# :books: Technologies / Libraries Used
 
 - [Python 3.14](https://www.python.org/) (current version used)
 - [Tkinter](https://docs.python.org/3/library/tkinter.html) (for GUI)
@@ -32,9 +33,9 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 - [yamllint](https://yamllint.readthedocs.io/en/stable/) (for YAML linting)
 - [Black](https://black.readthedocs.io/en/stable/) (for auto-formatting)
 
-## 🚀 Getting Started
+# :rocket: Getting Started
 
-### ⚙️ Prerequisites
+### :gear: Prerequisites
 
 - **Python 3.14+** installed ([download](https://www.python.org/downloads/))
 - **pip** (comes with Python)
@@ -97,7 +98,7 @@ To get started:
    python crossSum.py
    ```
 
-## 🧪 Running Tests, Linting, and Formatting
+# :test_tube: Running Tests, Linting, and Formatting
 
 > **Note:** Use a virtual environment for best results.
 
@@ -201,7 +202,7 @@ yamlfmt -w .
    python -m pytest
    ```
 
-# 🛠️ Cross Sum Number Compiler
+# :hammer_and_wrench: Standalone Executable
 
 You can compile the Cross Sum Number application into a self-contained application folder using `PyInstaller`, which bundles everything needed to run it — no Python installation required. However, please note:
 
@@ -234,17 +235,26 @@ To compile locally, follow these steps:
         --specpath . \
         --name crossSum
      ```
-     > ⚠️ **Note:** After compilation, a `crossSum` folder will be created inside `dist/`. The executable `crossSum.exe` is located inside that folder.
-     >
-     > You can copy just the `crossSum` folder (found inside `dist/`) anywhere on your machine (e.g., your Desktop) and run `crossSum.exe` directly — no Python installation or repository folder needed.
 
-## 🔄 Continuous Integration (CI)
+   > ⚠️ **Note:**
+   >
+   > After running PyInstaller, a `dist/` folder will be created.
+   >
+   > Inside `dist/`, you will find a folder named `CrossSum`.
+   >
+   > This `CrossSum` folder is a standalone, portable application.
+   >
+   > You can move this folder anywhere on your system (e.g., Desktop) and run `CrossSum.exe` directly. No Python installation or repository files are required.
+   >
+   > ⚠️ Do not remove the `_internal` folder, as it is required for the application to function properly.
+
+# :arrows_counterclockwise: Continuous Integration (CI)
 
 This project uses `GitHub Actions` for automated code quality and testing checks. Pipelines run on every push to the main branch and on every pull request.
 
 For more information, check the GitHub Actions tab in your repository. If any issues are reported by the CI, review and fix them promptly to maintain code quality.
 
-## 🤝 Contributing
+# :handshake: Contributing
 
 **How to contribute:**
 
@@ -282,7 +292,7 @@ For more information, check the GitHub Actions tab in your repository. If any is
 
 Thanks for contributing! 🎉
 
-## 📄 License
+# :page_facing_up: License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
