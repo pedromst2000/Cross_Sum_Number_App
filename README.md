@@ -203,7 +203,7 @@ yamlfmt -w .
 
 # 🛠️ Cross Sum Number Compiler
 
-You can compile the Cross Sum Number application into a standalone executable for your own local use using `PyInstaller`. This is useful if you want to run the app without Python installed. However, please note:
+You can compile the Cross Sum Number application into a self-contained application folder using `PyInstaller`, which bundles everything needed to run it — no Python installation required. However, please note:
 
 > **Warning:** The generated executable is intended for use on your own machine. Running the executable on remote or other machines may trigger antivirus false positives or fail due to environment differences. Distribution is not recommended.
 
@@ -234,7 +234,9 @@ To compile locally, follow these steps:
         --specpath . \
         --name crossSum
      ```
-     > ⚠️ **Note:** The standalone executable will be in the `dist` folder as `crossSum.exe`. Use it locally on your own machine.
+     > ⚠️ **Note:** After compilation, a `crossSum` folder will be created inside `dist/`. The executable `crossSum.exe` is located inside that folder.
+     >
+     > You can copy just the `crossSum` folder (found inside `dist/`) anywhere on your machine (e.g., your Desktop) and run `crossSum.exe` directly — no Python installation or repository folder needed.
 
 ## 🔄 Continuous Integration (CI)
 
