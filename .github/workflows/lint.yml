@@ -18,6 +18,7 @@ jobs:
         with:
           python-version: "3.14"
 
+      # Note: 'Cache not found' and 'Failed to save cache' messages are expected and not errors. See GitHub Actions docs for details.
       - name: Cache pip dependencies
         uses: actions/cache@v4
         with:
@@ -46,6 +47,8 @@ jobs:
       - name: Run yamllint
         run: |
           if ! yamllint .; then
-            echo "::error::YAML linting issues found! Please run 'yamllint .' locally and fix the YAML files."
+            echo "::error::YAML linting issues found!"
+              echo "Please run 'yamllint .' locally and " \
+                "fix the YAML files."
             exit 1
           fi
