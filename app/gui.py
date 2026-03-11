@@ -1,181 +1,135 @@
-from tkinter import Tk, Label, Button, StringVar, Entry, messagebox, Canvas, ttk
-from app.cross_sum import show_message
-from app.utils.icon import get_icon_path
+from tkinter import Tk, StringVar, Canvas
+from app.widgets.input_field import InputField
+from app.widgets.calculate_button import CalculateButton
+from app.widgets.instruction_label import InstructionLabel
+from app.widgets.title_label import TitleLabel
+from app.widgets.input_label import InputLabel
+from app.utils.window_setup import WindowSetup
+from app.utils.events import display_opening_message, handle_calculate
 
 
 class Window:
-    AppIcon: str = None
-    window: Tk = None
-    canvas: Canvas = None
-    label_input: Label = None
-    button_calculate: Button = None
-    input_var: StringVar = None
-    result_var: StringVar = None
+    """
+    Main application window for Cross Sum Number App.
+
+    This class initializes the main Tkinter window, sets up the layout, and composes the widgets.
+    """
 
     def __init__(
         self,
         AppIcon: str = None,
         window: Tk = None,
-        canvas: ttk.Frame = None,
-        label_input: Label = None,
-        button_calculate: Button = None,
+        canvas: Canvas = None,
         input_var: StringVar = None,
         result_var: StringVar = None,
+        input_field: InputField = None,
+        button_calculate: CalculateButton = None,
+        instruction_label: InstructionLabel = None,
+        title_label: TitleLabel = None,
+        input_label: InputLabel = None,
     ):
         """
-        Initialize the main class with optional parameters for window,
-        canvas, input_var, and result_var.
-        If no parameters are provided, it initializes the main window and
-        canvas.
+        Initialize the main Window class.
 
-        :param AppIcon: Path to the application icon.
-        :param window: Tk instance for the main window.
-        :param canvas: ttk.Frame instance for the main canvas.
-        :param label_input: Label instance for the input label.
-        :param button_calculate: Button instance for the calculate button.
-        :param input_var: StringVar instance for the input variable.
-        :param result_var: StringVar instance for the result variable.
+        Args:
+            AppIcon (str, optional): Path to the application icon. Defaults to None.
+            window (Tk, optional): Tkinter window instance. Defaults to None.
+            canvas (Canvas, optional): Canvas widget. Defaults to None.
+            input_var (StringVar, optional): Input StringVar. Defaults to None.
+            result_var (StringVar, optional): Result StringVar. Defaults to None.
+            input_field (InputField, optional): InputField widget. Defaults to None.
+            button_calculate (CalculateButton, optional): CalculateButton widget. Defaults to None.
+            instruction_label (InstructionLabel, optional): InstructionLabel widget. Defaults to None.
+            title_label (TitleLabel, optional): TitleLabel widget. Defaults to None.
+            input_label (InputLabel, optional): InputLabel widget. Defaults to None.
         """
-
-        self.AppIcon = AppIcon if AppIcon is not None else "app/assets/icon/" "Icon.ico"
+        self.AppIcon: str = (
+            AppIcon if AppIcon is not None else "app/assets/icon/Icon.ico"
+        )
         self.window = window
         self.canvas = canvas
-        self.label_input = label_input
-        self.button_calculate = button_calculate
         self.input_var = input_var
         self.result_var = result_var
+        self.input_field = input_field
+        self.button_calculate = button_calculate
+        self.instruction_label = instruction_label
+        self.title_label = title_label
+        self.input_label = input_label
 
     def __main__(self):
         """
-        This method initializes the main window and canvas if they are not
-        already set.
+        Set up the main window and compose widgets.
+
+        This method initializes the Tkinter window, sets its properties, and adds all UI widgets.
         """
-
+        # ---------------------------------Window setup ---------------------------
         self.window = Tk()
-        # Set the application icon.
-        self.window.iconbitmap(get_icon_path(self.AppIcon))
-        self.window.title("Cross Sum Number")
-        width, height = 600, 400
-        self.window.geometry(f"{width}x{height}")
-        self.window.resizable(False, False)
-        # Update the window to get the correct dimensions.
-        self.window.update_idletasks()
-        # Get the width of the screen.
-        screen_width = self.window.winfo_screenwidth()
-        screen_height = (
-            self.window.winfo_screenheight()
-        )  # Get the height of the screen.
-        x = (screen_width // 2) - (
-            width // 2
-        )  # Calculate the x position to center the window.
-        y = (screen_height // 2) - (
-            height // 2
-        )  # Calculate the y position to center the window.
-        self.window.geometry(
-            f"{width}x{height}+{x}+{y}"
-        )  # Setting the geometry of the window to center it on the screen.
+        window_setup = WindowSetup(
+            self.window,
+            title="Cross Sum Number",
+            width=600,
+            height=400,
+            resizable=(False, False),
+            center=True,
+        )
+        self.width = window_setup.width
+        self.height = window_setup.height
 
-        self.input_var = StringVar()  # StringVar to hold the input value.
-        self.result_var = StringVar()  # StringVar to hold the result value.
-        self.canvas = Canvas(self.window, width=width, height=height)
+        # ---------------------------------Widgets setup ---------------------------
+
+        # Initialize StringVars for input and result
+        self.input_var = StringVar()
+        self.result_var = StringVar()
+        self.canvas = Canvas(self.window, width=self.width, height=self.height)
         self.canvas.pack(fill="both", expand=True)
 
-        # Title
-        self.canvas.create_text(
-            width // 2,
-            40,
-            text="Cross Sum Number",
-            font=("Arial", 24, "bold"),
-            fill="black",
-        )
+        # Title label widget
+        self.title_label = TitleLabel(self.canvas)
 
         # Layout configuration
         y_start = 90
         y_spacing = 60
 
-        # Instruction label
-        self.instruction_label = Label(
-            self.canvas,
-            text="Press Enter or click Calculate",
-            font=("Arial", 12),
-            fg="gray",
-        )
-        self.instruction_label.update_idletasks()
+        # Instruction label widget
+        self.instruction_label = InstructionLabel(self.canvas)
         self.instruction_label.place(
-            x=(width // 2) - (self.instruction_label.winfo_reqwidth() // 2),
+            x=(self.width // 2) - (self.instruction_label.label.winfo_reqwidth() // 2),
             y=y_start,
         )
 
-        # Input label
-        self.label_input = Label(
-            self.canvas,
-            text="Enter a number:",
-            font=("Arial", 14),
-        )
-        self.label_input.update_idletasks()
-        self.label_input.place(
-            x=(width // 2) - (self.label_input.winfo_reqwidth() // 2),
-            y=y_start + y_spacing,
-        )
+        # Input label widget
+        self.input_label = InputLabel(self.canvas, y=y_start + y_spacing + 10)
 
-        # Input field
-        self.input_number = Entry(
-            self.canvas,
-            textvariable=self.input_var,
-            font=("Arial", 14),
-            width=20,
-            borderwidth=6,
-            relief="sunken",
-        )
-        self.input_number.update_idletasks()
-        self.input_number.place(
-            x=(width // 2) - (self.input_number.winfo_reqwidth() // 2),
+        # Input field widget
+        self.input_field = InputField(self.canvas, textvariable=self.input_var)
+        self.input_field.place(
+            x=(self.width // 2) - (self.input_field.entry.winfo_reqwidth() // 2),
             y=y_start + 2 * y_spacing,
         )
+        self.input_field.focus_set()
 
-        # to focus on the input field when the window opens
-        self.input_number.focus_set()
-
-        # Calculate button
-        self.button_calculate = Button(
-            self.canvas,
-            text="Calculate",
-            font=("Arial", 14),
-            bg="lightblue",
-            fg="black",
+        # Calculate button widget
+        self.button_calculate = CalculateButton(
+            self.canvas, command=lambda: handle_calculate(self.input_field.entry)
         )
-        self.button_calculate.update_idletasks()
         self.button_calculate.place(
-            x=(width // 2) - (self.button_calculate.winfo_reqwidth() // 2),
+            x=(self.width // 2) - (self.button_calculate.button.winfo_reqwidth() // 2),
             y=y_start + 3 * y_spacing,
         )
 
-        self.button_calculate.config(command=self.handle_calculate)
-        self.input_number.bind("<Return>", lambda event: self.handle_calculate())
-
-    def handle_calculate(self):
-        """
-        Handle the calculate button click event.
-        """
-        show_message(messagebox, self.input_number.get())
-
-    def display_opening_message(self):
-        """
-        Display an opening message in the Tkinter window.
-        """
-        messagebox.showinfo(
-            "Welcome",
-            "Welcome to the Cross Sum Number application!\n"
-            "A cross sum is the sum of all digits in a number.\n"
-            "For example, the cross sum of 12345 is 1 + 2 + 3 + 4 + 5 = 15.\n",
+        # Bind Enter key to calculation
+        self.input_field.bind(
+            "<Return>", lambda event: handle_calculate(self.input_field.entry)
         )
 
     def run(self):
         """
-        Run the main loop of the Tkinter window.
+        Start the Tkinter main loop to display the window.
+
+        If the window is not initialized, it will be set up first. Then, the opening message is shown and the main loop is started.
         """
         if self.window is None:
             self.__main__()
         # Show the opening message after the window is initialized
-        self.window.after(100, self.display_opening_message)
+        self.window.after(100, display_opening_message)
         self.window.mainloop()

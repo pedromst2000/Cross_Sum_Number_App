@@ -2,11 +2,19 @@ import unittest
 from unittest.mock import (
     MagicMock,
 )  # MagicMock is used to create mock objects for testing
-from app.cross_sum import validate_input, show_message, calculate_cross_sum
+from app.utils.validations import (
+    validate_input,
+    calculate_cross_sum,
+)
+from app.utils.events import show_message
 from tkinter import Entry, messagebox
 
 
 class TestCrossSum(unittest.TestCase):
+    """
+    Unit tests for the cross sum logic and input validation.
+    """
+
     def setUp(self):
         self.mock_entry = MagicMock(
             spec=Entry
