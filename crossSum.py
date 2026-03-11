@@ -7,7 +7,8 @@ from app.gui import Window
 def run_app():
     """
     Run the GUI application for the Cross Sum Number project.
-    When the windows is closed, will execute the automatic tests.
+
+    When the window is closed, automatic tests will be executed.
     """
     app = Window()
     app.__main__()  # Initialize the GUI application

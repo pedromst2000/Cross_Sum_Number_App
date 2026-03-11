@@ -73,26 +73,32 @@ def test_window_resizable_false(app):
 
 def test_label_input_exists(app):
     """Test that the input label exists and has the correct text."""
-    assert app.label_input is not None
-    assert app.label_input.cget("text") == "Enter a number:"
+    assert app.input_label is not None
+    # InputLabel is a canvas text, so we check the canvas text value
+    canvas = app.input_label.canvas
+    text_id = app.input_label.text_id
+    assert canvas.itemcget(text_id, "text") == "Enter a number:"
 
 
 def test_instruction_label_exists(app):
     """Test that the instruction label exists and has the correct text."""
     assert app.instruction_label is not None
-    assert app.instruction_label.cget("text") == "Press Enter or click Calculate"
+    # InstructionLabel wraps a Label widget
+    assert app.instruction_label.label.cget("text") == "Press Enter or click Calculate"
 
 
 def test_button_exists(app):
     """Test that the calculate button exists and has the correct text."""
     assert app.button_calculate is not None
-    assert app.button_calculate.cget("text") == "Calculate"
+    # CalculateButton wraps a Button widget
+    assert app.button_calculate.button.cget("text") == "Calculate"
 
 
 def test_input_field_exists(app):
     """Test that the input field exists and is an Entry widget."""
-    assert hasattr(app, "input_number")
-    assert isinstance(app.input_number, tk.Entry)
+    assert hasattr(app, "input_field")
+    # InputField wraps an Entry widget
+    assert isinstance(app.input_field.entry, tk.Entry)
 
 
 def test_button_command_calls_functionality(app):
