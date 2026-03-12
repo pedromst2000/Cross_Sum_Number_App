@@ -13,6 +13,7 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 ## :bookmark_tabs: Table of Contents
 
 - [:books: Technologies / Libraries Used](#books-technologies--libraries-used)
+- [:clapper: Demo Video](#clapper-demo-video)
 - [:rocket: Getting Started](#rocket-getting-started)
   - [:gear: Prerequisites](#gear-prerequisites)
 - [:test_tube: Running Tests, Linting, and Formatting](#test_tube-running-tests-linting-and-formatting)
@@ -32,6 +33,18 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 - [flake8](https://flake8.pycqa.org/en/latest/) (for code linting)
 - [yamllint](https://yamllint.readthedocs.io/en/stable/) (for YAML linting)
 - [Black](https://black.readthedocs.io/en/stable/) (for auto-formatting)
+
+# :clapper: Demo Video
+
+[![Demo Video](https://img.youtube.com/vi/I1cHkolX1NI/0.jpg)](https://youtu.be/I1cHkolX1NI)
+
+<p align="center">
+  <a href="https://youtu.be/I1cHkolX1NI" target="_blank">
+    <img src="https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube&logoColor=white&style=for-the-badge" alt="Watch on YouTube" />
+  </a>
+</p>
+
+---
 
 # :rocket: Getting Started
 
@@ -116,8 +129,8 @@ python run_tests.py
 
 ### Test Coverage
 
-
 > **Note:** To use coverage reporting, ensure `pytest-cov` is installed. It is included in `dev-requirements.txt`, so run:
+>
 > ```bash
 > pip install -r dev-requirements.txt
 > ```
@@ -136,6 +149,7 @@ pytest --cov=app --cov-report=xml
 
 > **Troubleshooting:**
 > If you see `ModuleNotFoundError: No module named 'app'`, set the `PYTHONPATH` environment variable to your project root before running pytest:
+>
 > - **Windows (PowerShell):**
 >   ```powershell
 >   $env:PYTHONPATH = "$PWD"
