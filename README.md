@@ -72,11 +72,18 @@ To get started:
    ```
 2. **(Recommended) Create and activate a virtual environment:**
 
+   Create the virtual environment:
    ```bash
    python -m venv .venv
-   # On Windows:
+   ```
+
+   Activate it on **Windows**:
+   ```bash
    .venv\Scripts\Activate
-   # On macOS/Linux:
+   ```
+
+   Activate it on **macOS/Linux**:
+   ```bash
    source .venv/bin/activate
    ```
 
@@ -119,11 +126,15 @@ To get started:
 
 This project uses [pytest](https://docs.pytest.org/en/stable/) for all tests (unit, integration, and UI). You do **not** need to use `unittest` directly—pytest will discover and run all tests automatically.
 
-To run all tests:
+To run all tests, use one of the following commands:
 
+**Option 1: Using pytest directly**
 ```bash
 python -m pytest
-# or
+```
+
+**Option 2: Using the test runner script**
+```bash
 python run_tests.py
 ```
 
