@@ -183,7 +183,14 @@ yamllint .
 
 > **Note:** All YAML files must use LF (Unix) line endings. If you see yamllint errors about line endings, convert the file to LF in your editor before committing.
 
-If not using a virtual environment, prefix commands with `python -m` (e.g., `python -m black ...`).
+**If not using a virtual environment:**
+
+- Use `python -m black ...`, `python -m flake8 ...`, and `python -m yamllint ...` instead of the short commands, e.g.:
+  ```bash
+  python -m black app tests crossSum.py
+  python -m flake8 .
+  python -m yamllint .
+  ```
 
 ## Recommended Workflow
 
