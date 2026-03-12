@@ -5,3 +5,4 @@ pyinstaller>=6.10.0
 flake8
 autopep8
 yamllint
+black
