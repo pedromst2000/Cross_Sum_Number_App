@@ -5,6 +5,7 @@ import tkinter as tk
 from app.utils.tkinter_env import fix_tkinter_library_paths
 
 from app.gui import Window
+from app.utils.events import display_opening_message
 
 # Patch iconbitmap at module level to avoid failures on Linux/CI where .ico files are not supported
 tk.Tk.iconbitmap = lambda *args, **kwargs: None
@@ -53,10 +54,13 @@ def test_initial_vars(app):
     assert isinstance(app.result_var, tk.StringVar)
 
 
-def test_opening_message(app):
-    """Test that the opening message is displayed."""
-    # Patch usage removed for flake8 compliance; test is a placeholder.
-    assert True
+def test_opening_message(app, mocker):
+    """Test that run() schedules display_opening_message via window.after and starts mainloop."""
+    mock_after = mocker.patch.object(app.window, "after")
+    mock_mainloop = mocker.patch.object(app.window, "mainloop")
+    app.run()
+    mock_after.assert_called_once_with(100, display_opening_message)
+    mock_mainloop.assert_called_once()
 
 
 def test_canvas_created(app):
@@ -101,6 +105,32 @@ def test_input_field_exists(app):
     assert isinstance(app.input_field.entry, tk.Entry)
 
 
-def test_button_command_calls_functionality(app):
-    # Patch usage removed for flake8 compliance; test is a placeholder.
-    assert True
+def test_button_command_calls_functionality(app, mocker):
+    """Test that clicking the calculate button triggers handle_calculate."""
+    mock_handle = mocker.patch("app.gui.handle_calculate")
+    app.button_calculate.button.invoke()
+    mock_handle.assert_called_once_with(app.input_field.entry)
+
+
+def test_input_field_get(app):
+    """Test that InputField.get() returns the current StringVar value."""
+    app.input_var.set("42")
+    assert app.input_field.get() == "42"
+    app.input_var.set("")  # Restore
+
+
+def test_input_label_update_position(app):
+    """Test that InputLabel.update_position() runs without error."""
+    app.input_label.update_position()
+
+
+def test_title_label_update_position(app):
+    """Test that TitleLabel.update_position() runs without error."""
+    app.title_label.update_position()
+
+
+def test_instruction_label_config(app):
+    """Test that InstructionLabel.config() updates the label text."""
+    app.instruction_label.config(text="New instruction")
+    assert app.instruction_label.label.cget("text") == "New instruction"
+    app.instruction_label.config(text="Press Enter or click Calculate")  # Restore

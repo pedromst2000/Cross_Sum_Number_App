@@ -100,107 +100,87 @@ To get started:
 
 # :test_tube: Running Tests, Linting, and Formatting
 
-> **Note:** Use a virtual environment for best results.
+> **Tip:** Use a virtual environment for best results.
+
+## Testing
+
+This project uses [pytest](https://docs.pytest.org/en/stable/) for all tests (unit, integration, and UI). You do **not** need to use `unittest` directly—pytest will discover and run all tests automatically.
 
 To run all tests:
 
 ```bash
 python -m pytest
-```
-
-or
-
-```bash
+# or
 python run_tests.py
 ```
 
-or for unittest framework:
+### Test Coverage
 
-- On **Windows**:
-  ```bash
-  python -m unittest discover -s tests
-  ```
-- On **macOS/Linux**:
-  ```bash
-  python3 -m unittest discover -s tests
-  ```
 
-### Code Formatting (Black)
+> **Note:** To use coverage reporting, ensure `pytest-cov` is installed. It is included in `dev-requirements.txt`, so run:
+> ```bash
+> pip install -r dev-requirements.txt
+> ```
 
-To auto-format your codebase using [Black](https://black.readthedocs.io/en/stable/):
-
-First, install Black in your (virtual) environment if it is not already installed:
+To check test coverage and see a report in your terminal:
 
 ```bash
-pip install black
+pytest --cov=app --cov-report=term-missing
 ```
 
-Then run:
+To generate an XML report (for CI or tools):
+
+```bash
+pytest --cov=app --cov-report=xml
+```
+
+> **Troubleshooting:**
+> If you see `ModuleNotFoundError: No module named 'app'`, set the `PYTHONPATH` environment variable to your project root before running pytest:
+> - **Windows (PowerShell):**
+>   ```powershell
+>   $env:PYTHONPATH = "$PWD"
+>   pytest --cov=app --cov-report=term-missing
+>   ```
+> - **Linux/macOS:**
+>   ```bash
+>   export PYTHONPATH=$PWD
+>   pytest --cov=app --cov-report=term-missing
+>   ```
+
+## Formatting & Linting
+
+Format code with [Black](https://black.readthedocs.io/en/stable/):
 
 ```bash
 black app tests crossSum.py
 ```
 
-### Code Linting (flake8 & yamllint)
-
-To check code quality with flake8:
+Lint Python code with [flake8](https://flake8.pycqa.org/en/latest/):
 
 ```bash
 flake8 .
 ```
 
-To lint YAML files with yamllint:
+Lint YAML files with [yamllint](https://yamllint.readthedocs.io/en/stable/):
 
 ```bash
 yamllint .
 ```
 
-> **Note:** All YAML files must use LF (Unix) line endings. This is enforced by the `.gitattributes` file in the repository. If you see yamllint errors about line endings, convert the file to LF in your editor before committing.
+> **Note:** All YAML files must use LF (Unix) line endings. If you see yamllint errors about line endings, convert the file to LF in your editor before committing.
 
-<!-- To auto-format YAML files with yamlfmt:
+If not using a virtual environment, prefix commands with `python -m` (e.g., `python -m black ...`).
 
-```bash
-yamlfmt -w .
-``` -->
+## Recommended Workflow
 
-**If not using a virtual environment:**
+Before committing code, always:
 
-- Use `python -m black ...`, `python -m flake8 ...`, and `python -m yamllint ...` instead of the short commands, e.g.:
-  ```bash
-  python -m black app tests crossSum.py
-  python -m flake8 .
-  python -m yamllint .
-  ```
-- In a virtual environment, you can use `black`, `flake8`, and `yamllint` directly after activation.
+1. Format: `black app tests crossSum.py`
+2. Lint Python: `flake8 .`
+3. Lint YAML: `yamllint .`
+4. Test: `python -m pytest`
 
-**Notes:**
-
-- The `.flake8` config ignores E501 (line too long) and uses a max line length of 88 to match Black's default.
-- The `.yamllint.yaml` config is used for YAML linting rules.
-- All tools work best in a virtual environment, where you can use the short commands (`black`, `flake8`, `yamllint`) directly after activation.
-
-### Recommended Workflow
-
-> **Note:** Always run the formatting, linting, and test commands below before committing your code. This helps prevent CI pipeline failures. If your CI fails, check the GitHub Actions tab for issues and fix them promptly.
-
-1. **Format your code:**
-   ```bash
-   black app tests crossSum.py
-   ```
-2. **Lint your code:**
-   ```bash
-   flake8 .
-   ```
-3. **Lint YAML files:**
-
-   ```bash
-   yamllint .
-   ```
-
-4. **Run tests:**
-   ```bash
-   python -m pytest
-   ```
+> This helps prevent CI failures. If CI fails, check the GitHub Actions tab for details and fix issues promptly.
 
 # :hammer_and_wrench: Standalone Executable
 
