@@ -11,17 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.0
 
       - name: Set up Python 3.14
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5.1.0
         with:
           python-version: "3.14"
 
       # Note: 'Cache not found' and 'Failed to save cache' warnings are
       # expected and not errors. See GitHub Actions docs for details.
       - name: Cache pip dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v4.0.2
         with:
           path: ~/.cache/pip
           key: >-
