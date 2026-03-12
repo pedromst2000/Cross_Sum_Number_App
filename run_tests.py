@@ -7,22 +7,6 @@ def run_tests():
     """
     Run the tests for the Cross Sum Number project.
     """
-    print("\n[Info] Running tests with unittest...")
-    unittest_result = subprocess.call(
-        [
-            sys.executable,
-            "-m",
-            "unittest",
-            "discover",
-            "-s",
-            "tests",
-            "-p",
-            "test_*.py",
-        ],
-        # Set environment variable to indicate tests are running
-        env={**os.environ, "RUNNING_TESTS": "1"},
-    )
-
     print("\n[Info] Running tests with pytest...")
     pytest_result = subprocess.call(
         [
@@ -35,7 +19,7 @@ def run_tests():
         env={**os.environ, "RUNNING_TESTS": "1"},
     )
 
-    if unittest_result == 0 and pytest_result == 0:
+    if pytest_result == 0:
         print("\n[Info] ✅ All tests passed successfully!")
     else:
         print("\n[Error] ❌ Some tests failed. Please check the output above.")
