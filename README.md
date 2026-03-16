@@ -30,6 +30,8 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 - [pytest](https://docs.pytest.org/en/stable/) (for testing)
 - [pytest-mock](https://github.com/pytest-dev/pytest-mock) (for mocking in tests)
 
+- [pytest-cov](https://pytest-cov.readthedocs.io/en/latest/) (for test coverage reporting)
+
 - [flake8](https://flake8.pycqa.org/en/latest/) (for code linting)
 - [yamllint](https://yamllint.readthedocs.io/en/stable/) (for YAML linting)
 - [Black](https://black.readthedocs.io/en/stable/) (for auto-formatting)
@@ -124,7 +126,7 @@ To get started:
 
 ## Testing
 
-This project uses [pytest](https://docs.pytest.org/en/stable/) for all tests (unit, integration, and UI). You do **not** need to use `unittest` directly—pytest will discover and run all tests automatically.
+This project uses [pytest](https://docs.pytest.org/en/stable/) for all tests (unit, integration, and UI). Tests are located in the `tests/` directory and follow the naming convention `test_*.py`.
 
 To run all tests, use one of the following commands:
 
@@ -264,7 +266,7 @@ To compile locally, follow these steps:
 
 This project uses `GitHub Actions` for automated code quality and testing checks. Pipelines run on every push to the main branch and on every pull request.
 
-For more information, check the GitHub Actions tab in your repository. If any issues are reported by the CI, review and fix them promptly to maintain code quality.
+For more information, check the GitHub Actions tab. If any issues are reported by the CI, review and fix them promptly to maintain code quality.
 
 # :handshake: Contributing
 
