@@ -1,6 +1,7 @@
 [run]
 branch = True
 source = app
+relative_files = True
 omit =
     */__init__.py
 
