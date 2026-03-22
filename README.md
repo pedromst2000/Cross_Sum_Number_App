@@ -8,6 +8,17 @@
 
 <h1 align="center">Cross Sum Number</h1>
 
+<p align="center">
+   <a href="https://github.com/pedromst2000/Cross_Sum_Number_App/actions/workflows/test.yml">
+      <img src="https://github.com/pedromst2000/Cross_Sum_Number_App/actions/workflows/test.yml/badge.svg" alt="Tests" />
+   </a>
+   <a href="https://github.com/pedromst2000/Cross_Sum_Number_App/actions/workflows/lint.yml">
+      <img src="https://github.com/pedromst2000/Cross_Sum_Number_App/actions/workflows/lint.yml/badge.svg" alt="Lint Code Quality" />
+   </a>
+   <a href="https://codecov.io/gh/pedromst2000/Cross_Sum_Number_App">
+      <img src="https://codecov.io/gh/pedromst2000/Cross_Sum_Number_App/branch/master/graph/badge.svg" alt="Coverage" />
+   </a>
+</p>
 A Cross Sum Number is a simple and engaging Python app where users calculate the sum of the digits in a given number. This project features a user-friendly graphical interface built with the `Tkinter` library, allowing users to easily input a number and instantly see the sum of its digits.
 
 ## :bookmark_tabs: Table of Contents
@@ -24,17 +35,27 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 
 # :books: Technologies / Libraries Used
 
-- [Python 3.14](https://www.python.org/) (current version used)
-- [Tkinter](https://docs.python.org/3/library/tkinter.html) (for GUI)
-- [PIP](https://pip.pypa.io/en/stable/) (Python package installer)
-- [pytest](https://docs.pytest.org/en/stable/) (for testing)
-- [pytest-mock](https://github.com/pytest-dev/pytest-mock) (for mocking in tests)
+**Core Technologies**
 
-- [pytest-cov](https://pytest-cov.readthedocs.io/en/latest/) (for test coverage reporting)
+- [Python 3.14+](https://www.python.org/) — Main programming language.
+- [Tkinter](https://docs.python.org/3/library/tkinter.html) — GUI framework.
+- [pip](https://pip.pypa.io/en/stable/) — Package manager.
 
-- [flake8](https://flake8.pycqa.org/en/latest/) (for code linting)
-- [yamllint](https://yamllint.readthedocs.io/en/stable/) (for YAML linting)
-- [Black](https://black.readthedocs.io/en/stable/) (for auto-formatting)
+**Testing**
+
+- [pytest](https://docs.pytest.org/en/stable/) — Testing framework.
+- [pytest-mock](https://github.com/pytest-dev/pytest-mock) — Mocking in tests.
+- [pytest-cov](https://pytest-cov.readthedocs.io/en/latest/) — Test coverage reporting.
+
+**Code Quality & Linting**
+
+- [Black](https://black.readthedocs.io/en/stable/) — Code formatter.
+- [flake8](https://flake8.pycqa.org/en/latest/) — Code linter.
+- [yamllint](https://yamllint.readthedocs.io/en/stable/) — YAML file linting.
+
+**Packaging**
+
+- [PyInstaller](https://www.pyinstaller.org/) — Build standalone executables.
 
 # :clapper: Demo Video
 
@@ -75,16 +96,19 @@ To get started:
 2. **(Recommended) Create and activate a virtual environment:**
 
    Create the virtual environment:
+
    ```bash
    python -m venv .venv
    ```
 
    Activate it on **Windows**:
+
    ```bash
    .venv\Scripts\Activate
    ```
 
    Activate it on **macOS/Linux**:
+
    ```bash
    source .venv/bin/activate
    ```
@@ -131,88 +155,100 @@ This project uses [pytest](https://docs.pytest.org/en/stable/) for all tests (un
 To run all tests, use one of the following commands:
 
 **Option 1: Using pytest directly**
+
 ```bash
 python -m pytest
 ```
 
 **Option 2: Using the test runner script**
+
 ```bash
 python run_tests.py
 ```
 
 ### Test Coverage
 
-> **Note:** To use coverage reporting, ensure `pytest-cov` is installed. It is included in `dev-requirements.txt`, so run:
+> **Note:** `pytest-cov` is included in `dev-requirements.txt`. Verify installation with:
 >
 > ```bash
-> pip install -r dev-requirements.txt
+> python -m pip show pytest-cov
 > ```
 
-To check test coverage and see a report in your terminal:
+Run tests with coverage reporting:
 
 ```bash
-pytest --cov=app --cov-report=term-missing
+python -m pytest --cov=app --cov-report=term-missing
 ```
 
-To generate an XML report (for CI or tools):
+Generate XML for CI/tools:
 
 ```bash
-pytest --cov=app --cov-report=xml
+python -m pytest --cov=app --cov-report=xml
 ```
 
-> **Troubleshooting:**
-> If you see `ModuleNotFoundError: No module named 'app'`, set the `PYTHONPATH` environment variable to your project root before running pytest:
->
-> - **Windows (PowerShell):**
->   ```powershell
->   $env:PYTHONPATH = "$PWD"
->   pytest --cov=app --cov-report=term-missing
->   ```
-> - **Linux/macOS:**
->   ```bash
->   export PYTHONPATH=$PWD
->   pytest --cov=app --cov-report=term-missing
->   ```
+**Troubleshooting:**
+
+- If you see `ModuleNotFoundError: No module named 'app'`, set `PYTHONPATH`:
+  - On Windows (PowerShell):
+
+  ```powershell
+  $env:PYTHONPATH = "$PWD"
+  ```
+
+  - On Linux/macOS:
+
+  ```bash
+  export PYTHONPATH=$PWD
+  ```
+
+  Then re-run pytest.
+
+- If pytest is not found and you haven't activated the venv, use `python -m pytest` (shown above) — this works regardless of PATH.
 
 ## Formatting & Linting
 
-Format code with [Black](https://black.readthedocs.io/en/stable/):
+Run these commands to format and lint your code:
 
 ```bash
-black app tests crossSum.py
+python -m black app tests crossSum.py  # Format code
 ```
 
-Lint Python code with [flake8](https://flake8.pycqa.org/en/latest/):
-
 ```bash
-flake8 .
+python -m flake8 .  # Lint Python
 ```
 
-Lint YAML files with [yamllint](https://yamllint.readthedocs.io/en/stable/):
-
 ```bash
-yamllint .
+python -m yamllint .  # Lint YAML
 ```
 
 > **Note:** All YAML files must use LF (Unix) line endings. If you see yamllint errors about line endings, convert the file to LF in your editor before committing.
 
-**If not using a virtual environment:**
-
-- Use `python -m black ...`, `python -m flake8 ...`, and `python -m yamllint ...` instead of the short commands, e.g.:
-  ```bash
-  python -m black app tests crossSum.py
-  python -m flake8 .
-  python -m yamllint .
-  ```
-
 ## Recommended Workflow
 
-Before committing code, always:
+Before committing code, run this checklist:
 
-1. Format: `black app tests crossSum.py`
-2. Lint Python: `flake8 .`
-3. Lint YAML: `yamllint .`
-4. Test: `python -m pytest`
+1. Format code with Black
+
+   ```bash
+   python -m black app tests crossSum.py
+   ```
+
+2. Lint Python code with flake8
+
+   ```bash
+   python -m flake8 .
+   ```
+
+3. Lint YAML files with yamllint
+
+   ```bash
+   python -m yamllint .
+   ```
+
+4. Run all tests
+   ```bash
+   python -m pytest
+   ```
 
 > This helps prevent CI failures. If CI fails, check the GitHub Actions tab for details and fix issues promptly.
 
