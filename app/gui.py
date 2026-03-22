@@ -1,4 +1,5 @@
 from tkinter import Tk, StringVar, Canvas
+from typing import Optional
 from app.widgets.input_field import InputField
 from app.widgets.calculate_button import CalculateButton
 from app.widgets.instruction_label import InstructionLabel
@@ -17,16 +18,16 @@ class Window:
 
     def __init__(
         self,
-        AppIcon: str = None,
-        window: Tk = None,
-        canvas: Canvas = None,
-        input_var: StringVar = None,
-        result_var: StringVar = None,
-        input_field: InputField = None,
-        button_calculate: CalculateButton = None,
-        instruction_label: InstructionLabel = None,
-        title_label: TitleLabel = None,
-        input_label: InputLabel = None,
+        AppIcon: Optional[str] = None,
+        window: Optional[Tk] = None,
+        canvas: Optional[Canvas] = None,
+        input_var: Optional[StringVar] = None,
+        result_var: Optional[StringVar] = None,
+        input_field: Optional[InputField] = None,
+        button_calculate: Optional[CalculateButton] = None,
+        instruction_label: Optional[InstructionLabel] = None,
+        title_label: Optional[TitleLabel] = None,
+        input_label: Optional[InputLabel] = None,
     ):
         """
         Initialize the main Window class.
@@ -110,7 +111,8 @@ class Window:
 
         # Calculate button widget
         self.button_calculate = CalculateButton(
-            self.canvas, command=lambda: handle_calculate(self.input_field.entry)
+            self.canvas,
+            command=self._on_calculate,
         )
         self.button_calculate.place(
             x=(self.width // 2) - (self.button_calculate.button.winfo_reqwidth() // 2),
@@ -118,9 +120,17 @@ class Window:
         )
 
         # Bind Enter key to calculation
-        self.input_field.bind(
-            "<Return>", lambda event: handle_calculate(self.input_field.entry)
-        )
+        self.input_field.bind("<Return>", self._on_calculate)
+
+    def _on_calculate(self, event=None):
+        """Invoke handle_calculate for the current input field value.
+
+        Used as both the button command and the <Return> key binding.
+        Python resolves `handle_calculate` from this module’s namespace at
+        call time, so test patches applied to ``app.gui.handle_calculate``
+        are automatically respected.
+        """
+        handle_calculate(self.input_field.entry)
 
     def run(self):
         """

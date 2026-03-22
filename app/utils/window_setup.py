@@ -1,4 +1,5 @@
 from tkinter import Tk
+from typing import Optional, Tuple
 from app.utils.icon import get_icon_path
 
 
@@ -25,8 +26,8 @@ class WindowSetup:
         title: str = "Cross Sum Calculator",
         width: int = 600,
         height: int = 400,
-        resizable: tuple = (False, False),
-        icon_path: str = None,
+        resizable: Tuple[bool, bool] = (False, False),
+        icon_path: Optional[str] = None,
         center: bool = True,
     ):
         """
