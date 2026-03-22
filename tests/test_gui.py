@@ -1,28 +1,6 @@
-import pytest
 import tkinter as tk
 
-# Ensure Tcl/Tk library paths are set correctly for Tkinter in virtual environments on Windows.
-from app.utils.tkinter_env import fix_tkinter_library_paths
-
-from app.gui import Window
 from app.utils.events import display_opening_message
-
-# Patch iconbitmap at module level to avoid failures on Linux/CI where .ico files are not supported
-tk.Tk.iconbitmap = lambda *args, **kwargs: None
-
-
-fix_tkinter_library_paths()
-
-
-# Use module scope to create only ONE Tk instance for all GUI tests.
-# Tkinter does not support multiple create/destroy cycles reliably in the same process.
-@pytest.fixture(scope="module")
-def app():
-    window = Window()
-    window.__main__()  # Initialize the GUI
-    window.window.withdraw()  # Hide the window during tests
-    yield window
-    window.window.destroy()
 
 
 def test_icon_exists(app):
@@ -134,3 +112,41 @@ def test_instruction_label_config(app):
     app.instruction_label.config(text="New instruction")
     assert app.instruction_label.label.cget("text") == "New instruction"
     app.instruction_label.config(text="Press Enter or click Calculate")  # Restore
+
+
+def test_enter_binding_triggers_handle_calculate(app, mocker):
+    """
+    Test that pressing Enter in the input field triggers handle_calculate.
+
+    Args:
+        app: The shared application instance provided by the fixture.
+        mocker: pytest-mock fixture for patching handle_calculate.
+
+    Asserts:
+        - handle_calculate is called once with the input field's Entry widget when Enter is pressed
+    """
+
+    mock_handle = mocker.patch("app.gui.handle_calculate")
+    # Verify the binding is registered for <Return> on the entry widget
+    assert app.input_field.entry.bind("<Return>"), "No <Return> binding on entry widget"
+    # Call the bound handler directly — event_generate for key events is unreliable
+    # on withdrawn windows (OS focus required on Windows). Calling _on_calculate()
+    # exercises the exact same code path as pressing Enter.
+    app._on_calculate()
+    mock_handle.assert_called_once_with(app.input_field.entry)
+
+
+# ----------------------------- E2E test -----------------------------
+
+
+def test_e2e_calculate_shows_result(app, mocker):
+    """E2E: set input on the shared window, invoke calculate via button, assert messagebox called."""
+    mock_showinfo = mocker.patch("tkinter.messagebox.showinfo")
+
+    app.input_var.set("123")
+    app.button_calculate.button.invoke()
+
+    mock_showinfo.assert_called_with("Result", "6")
+
+    # Restore state for subsequent tests
+    app.input_var.set("")

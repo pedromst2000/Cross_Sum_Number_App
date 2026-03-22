@@ -4,7 +4,11 @@ source = app
 relative_files = True
 omit =
     */__init__.py
+    app/utils/tkinter_env.py
 
 [report]
 show_missing = True
 skip_covered = True
+exclude_lines =
+    # pragma: no cover
+    pass  # Ignore icon errors

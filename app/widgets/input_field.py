@@ -45,8 +45,6 @@ class InputField:
         Args:
             x (int): X-coordinate for placement.
             y (int): Y-coordinate for placement.
-        Returns:
-            None
         """
         self.entry.update_idletasks()
         self.entry.place(x=x, y=y)
@@ -54,9 +52,6 @@ class InputField:
     def focus_set(self) -> None:
         """
         Set focus to the input field.
-
-        Returns:
-            None
         """
         return self.entry.focus_set()
 
@@ -67,9 +62,6 @@ class InputField:
         Args:
             sequence (str): The event sequence (e.g., '<Return>').
             func (callable): The callback function to bind.
-
-        Returns:
-            None
         """
         return self.entry.bind(sequence, func)
 

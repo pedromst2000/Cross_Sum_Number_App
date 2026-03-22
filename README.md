@@ -29,7 +29,6 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
   - [:gear: Prerequisites](#gear-prerequisites)
 - [:test_tube: Running Tests, Linting, and Formatting](#test_tube-running-tests-linting-and-formatting)
 - [:hammer_and_wrench: Standalone Executable](#hammer_and_wrench-standalone-executable)
-- [:arrows_counterclockwise: Continuous Integration (CI)](#arrows_counterclockwise-continuous-integration-ci)
 - [:handshake: Contributing](#handshake-contributing)
 - [:page_facing_up: License](#page_facing_up-license)
 
@@ -46,12 +45,15 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 - [pytest](https://docs.pytest.org/en/stable/) — Testing framework.
 - [pytest-mock](https://github.com/pytest-dev/pytest-mock) — Mocking in tests.
 - [pytest-cov](https://pytest-cov.readthedocs.io/en/latest/) — Test coverage reporting.
+- [Hypothesis](https://hypothesis.readthedocs.io/en/latest/) — Property-based testing.
+- [codecov](https://codecov.io/) — Code coverage reporting service.
 
 **Code Quality & Linting**
 
 - [Black](https://black.readthedocs.io/en/stable/) — Code formatter.
 - [flake8](https://flake8.pycqa.org/en/latest/) — Code linter.
 - [yamllint](https://yamllint.readthedocs.io/en/stable/) — YAML file linting.
+- [mypy](https://mypy-lang.org/) — Static type checking.
 
 **Packaging**
 
@@ -174,6 +176,8 @@ python run_tests.py
 > python -m pip show pytest-cov
 > ```
 
+> **Coverage threshold:** The CI pipeline enforces a minimum of **80% coverage**. The `--cov-fail-under=80` flag is passed automatically in CI. Running with the command below will also enforce this locally.
+
 Run tests with coverage reporting:
 
 ```bash
@@ -223,6 +227,14 @@ python -m yamllint .  # Lint YAML
 
 > **Note:** All YAML files must use LF (Unix) line endings. If you see yamllint errors about line endings, convert the file to LF in your editor before committing.
 
+### Type checking (mypy)
+
+This project uses `mypy` for static type checking. To run mypy checks:
+
+```bash
+python -m mypy app tests crossSum.py
+```
+
 ## Recommended Workflow
 
 Before committing code, run this checklist:
@@ -239,13 +251,19 @@ Before committing code, run this checklist:
    python -m flake8 .
    ```
 
-3. Lint YAML files with yamllint
+3. Type check with mypy
+
+   ```bash
+   python -m mypy app tests crossSum.py
+   ```
+
+4. Lint YAML files with yamllint
 
    ```bash
    python -m yamllint .
    ```
 
-4. Run all tests
+5. Run all tests
    ```bash
    python -m pytest
    ```
@@ -292,11 +310,6 @@ To compile locally, follow these steps:
 
    > You can move the dist/CrossSum folder to your desktop or another location and run the executable from there. Just keep the entire folder together.
 
-# :arrows_counterclockwise: Continuous Integration (CI)
-
-This project uses `GitHub Actions` for automated code quality and testing checks. Pipelines run on every push to the main branch and on every pull request.
-
-For more information, check the GitHub Actions tab. If any issues are reported by the CI, review and fix them promptly to maintain code quality.
 
 # :handshake: Contributing
 
@@ -326,6 +339,8 @@ For more information, check the GitHub Actions tab. If any issues are reported b
 - style: formatting
 - chore: maintenance
 - ci: CI pipelines
+- refactor: code changes that don't add features or fix bugs
+- test: adding or fixing tests
 
 **PR checklist:**
 

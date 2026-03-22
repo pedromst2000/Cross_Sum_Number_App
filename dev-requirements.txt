@@ -1,8 +1,19 @@
+# Testing
 pytest
 pytest-cov
 pytest-mock
+
+# Packaging
 pyinstaller>=6.10.0
+
+# Code Quality
 flake8
 autopep8
 yamllint
 black
+
+# Type Checking
+mypy
+ 
+# Property testing
+hypothesis

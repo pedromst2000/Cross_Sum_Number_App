@@ -9,8 +9,6 @@ def fix_tkinter_library_paths():
     This function sets the TCL_LIBRARY and TK_LIBRARY environment variables to the correct
     paths for Tcl/Tk when running inside a virtual environment on Windows.
 
-    Returns:
-        None
     """
     if sys.platform == "win32" and sys.prefix != sys.base_prefix:
         _tcl_dir = os.path.join(sys.base_prefix, "tcl")

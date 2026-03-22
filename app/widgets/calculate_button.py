@@ -46,8 +46,6 @@ class CalculateButton:
             x (int): X-coordinate for placement.
             y (int): Y-coordinate for placement.
 
-        Returns:
-            None
         """
         self.button.update_idletasks()
         self.button.place(x=x, y=y)

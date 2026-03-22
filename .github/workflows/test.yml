@@ -48,7 +48,7 @@ jobs:
 
       - name: Run tests with coverage (with Xvfb)
         run: |
-          python -m pytest --cov=app --cov-report=term-missing --cov-report=xml:coverage.xml
+          python -m pytest --cov=app --cov-report=term-missing --cov-report=xml:coverage.xml --cov-fail-under=80
         env:
           DISPLAY: :99
       - name: Upload coverage reports to Codecov

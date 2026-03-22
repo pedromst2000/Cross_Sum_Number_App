@@ -40,8 +40,6 @@ class InstructionLabel:
             x (int): X-coordinate for placement.
             y (int): Y-coordinate for placement.
 
-        Returns:
-            None
         """
         self.label.update_idletasks()
         self.label.place(x=x, y=y)
@@ -52,8 +50,5 @@ class InstructionLabel:
 
         Args:
             **kwargs: Keyword arguments for label configuration (e.g., text, font, fg).
-
-        Returns:
-            None
         """
         self.label.config(**kwargs)
