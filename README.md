@@ -16,7 +16,7 @@
       <img src="https://github.com/pedromst2000/Cross_Sum_Number_App/actions/workflows/lint.yml/badge.svg" alt="Lint Code Quality" />
    </a>
    <a href="https://codecov.io/gh/pedromst2000/Cross_Sum_Number_App">
-      <img src="https://codecov.io/gh/pedromst2000/Cross_Sum_Number_App/graph/badge.svg" alt="Coverage" />
+      <img src="https://codecov.io/gh/pedromst2000/Cross_Sum_Number_App/graph/badge.svg?branch=master" alt="Coverage" />
    </a>
 </p>
 A Cross Sum Number is a simple and engaging Python app where users calculate the sum of the digits in a given number. This project features a user-friendly graphical interface built with the `Tkinter` library, allowing users to easily input a number and instantly see the sum of its digits.
@@ -254,7 +254,7 @@ Before committing code, run this checklist:
 
 # :hammer_and_wrench: Standalone Executable
 
-You can compile the Cross Sum Number application into a self-contained application folder using `PyInstaller`, which bundles everything needed to run it — no Python installation required. However, please note:
+You can compile the Cross Sum Number application into a self-contained application folder using `PyInstaller`, which bundles everything needed to run it. However, please note:
 
 > **Warning:** The generated executable is intended for use on your own machine. Running the executable on remote or other machines may trigger antivirus false positives or fail due to environment differences. Distribution is not recommended.
 
@@ -286,17 +286,11 @@ To compile locally, follow these steps:
         --name crossSum
      ```
 
-   > ⚠️ **Note:**
+   > ⚠️ **Note:** After building with PyInstaller a `dist/CrossSum` folder is created. That folder is a self-contained Windows app—open `dist/CrossSum` and run `CrossSum.exe` (no Python required).
    >
-   > After running PyInstaller, a `dist/` folder will be created.
-   >
-   > Inside `dist/`, you will find a folder named `CrossSum`.
-   >
-   > This `CrossSum` folder contains a standalone, portable application. You can move this folder anywhere on your own system (e.g., Desktop) and run `CrossSum.exe` directly—**you do not need to have Python installed to run the executable**. All necessary Python components are bundled inside.
-   >
-   > **However, you do need Python installed to build (compile) the executable with PyInstaller.**
-   >
-   > ⚠️ Do not remove the `_internal` folder, as it is required for the application to function properly.
+   > Keep the folder contents together (do not remove `_internal` or other support files). The `CrossSum.exe` is platform-specific; to rebuild you need Python + PyInstaller on the target OS. Executables may be flagged by antivirus software; allow/verify as needed.
+
+   > You can move the dist/CrossSum folder to your desktop or another location and run the executable from there. Just keep the entire folder together.
 
 # :arrows_counterclockwise: Continuous Integration (CI)
 
