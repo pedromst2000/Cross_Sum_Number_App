@@ -16,7 +16,7 @@
       <img src="https://github.com/pedromst2000/Cross_Sum_Number_App/actions/workflows/lint.yml/badge.svg" alt="Lint Code Quality" />
    </a>
    <a href="https://codecov.io/gh/pedromst2000/Cross_Sum_Number_App">
-      <img src="https://codecov.io/gh/pedromst2000/Cross_Sum_Number_App/branch/master/graph/badge.svg" alt="Coverage" />
+      <img src="https://codecov.io/gh/pedromst2000/Cross_Sum_Number_App/graph/badge.svg" alt="Coverage" />
    </a>
 </p>
 A Cross Sum Number is a simple and engaging Python app where users calculate the sum of the digits in a given number. This project features a user-friendly graphical interface built with the `Tkinter` library, allowing users to easily input a number and instantly see the sum of its digits.
