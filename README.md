@@ -23,14 +23,26 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 
 ## :bookmark_tabs: Table of Contents
 
-- [:books: Technologies / Libraries Used](#books-technologies--libraries-used)
 - [:clapper: Demo Video](#clapper-demo-video)
+- [:books: Technologies / Libraries Used](#books-technologies--libraries-used)
 - [:rocket: Getting Started](#rocket-getting-started)
   - [:gear: Prerequisites](#gear-prerequisites)
 - [:test_tube: Running Tests, Linting, and Formatting](#test_tube-running-tests-linting-and-formatting)
 - [:hammer_and_wrench: Standalone Executable](#hammer_and_wrench-standalone-executable)
 - [:handshake: Contributing](#handshake-contributing)
 - [:page_facing_up: License](#page_facing_up-license)
+
+<br>
+
+# :clapper: Demo Video
+
+[![Demo Video](https://img.youtube.com/vi/I1cHkolX1NI/0.jpg)](https://youtu.be/I1cHkolX1NI)
+
+<p align="center">
+  <a href="https://youtu.be/I1cHkolX1NI" target="_blank">
+    <img src="https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube&logoColor=white&style=for-the-badge" alt="Watch on YouTube" />
+  </a>
+</p>
 
 # :books: Technologies / Libraries Used
 
@@ -58,16 +70,6 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 **Packaging**
 
 - [PyInstaller](https://www.pyinstaller.org/) — Build standalone executables.
-
-# :clapper: Demo Video
-
-[![Demo Video](https://img.youtube.com/vi/I1cHkolX1NI/0.jpg)](https://youtu.be/I1cHkolX1NI)
-
-<p align="center">
-  <a href="https://youtu.be/I1cHkolX1NI" target="_blank">
-    <img src="https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube&logoColor=white&style=for-the-badge" alt="Watch on YouTube" />
-  </a>
-</p>
 
 ---
 
@@ -309,7 +311,6 @@ To compile locally, follow these steps:
    > Keep the folder contents together (do not remove `_internal` or other support files). The `CrossSum.exe` is platform-specific; to rebuild you need Python + PyInstaller on the target OS. Executables may be flagged by antivirus software; allow/verify as needed.
 
    > You can move the dist/CrossSum folder to your desktop or another location and run the executable from there. Just keep the entire folder together.
-
 
 # :handshake: Contributing
 
