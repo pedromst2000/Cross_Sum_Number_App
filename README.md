@@ -38,14 +38,19 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 
 ## :clapper: Demo Video
 
-[![Demo Video](https://img.youtube.com/vi/I1cHkolX1NI/0.jpg)](https://youtu.be/I1cHkolX1NI)
+<div align="center">
 
-<p align="center">
-  <a href="https://youtu.be/I1cHkolX1NI" target="_blank">
-    <img src="https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube&logoColor=white&style=for-the-badge" alt="Watch on YouTube" />
-  </a>
-</p>
-
+  <p>
+    <a href="https://www.youtube.com/watch?v=I1cHkolX1NI&feature=youtu.be" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.youtube.com/vi/I1cHkolX1NI/0.jpg" alt="Activulse Demo Video" width="800" />
+    </a>
+  </p>
+  <p>
+    <a href="https://www.youtube.com/watch?v=I1cHkolX1NI&feature=youtu.be" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.shields.io/badge/Watch_on-YouTube-red?logo=youtube&logoColor=white&style=for-the-badge" alt="Watch on YouTube" />
+    </a>
+  </p>
+</div>
 ## :books: Technologies / Libraries Used
 
 **Core Technologies**
