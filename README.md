@@ -51,6 +51,7 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
     </a>
   </p>
 </div>
+
 ## :books: Technologies / Libraries Used
 
 **Core Technologies**
