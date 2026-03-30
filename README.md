@@ -32,9 +32,7 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 - [:handshake: Contributing](#handshake-contributing)
 - [:page_facing_up: License](#page_facing_up-license)
 
-<br>
-
-# :clapper: Demo Video
+   ## :clapper: Demo Video
 
 [![Demo Video](https://img.youtube.com/vi/I1cHkolX1NI/0.jpg)](https://youtu.be/I1cHkolX1NI)
 
@@ -44,7 +42,7 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
   </a>
 </p>
 
-# :books: Technologies / Libraries Used
+## :books: Technologies / Libraries Used
 
 **Core Technologies**
 
@@ -71,9 +69,8 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 
 - [PyInstaller](https://www.pyinstaller.org/) — Build standalone executables.
 
----
 
-# :rocket: Getting Started
+## :rocket: Getting Started
 
 ### :gear: Prerequisites
 
@@ -148,11 +145,11 @@ To get started:
    python crossSum.py
    ```
 
-# :test_tube: Running Tests, Linting, and Formatting
+## :test_tube: Running Tests, Linting, and Formatting
 
 > **Tip:** Use a virtual environment for best results.
 
-## Testing
+### Testing
 
 This project uses [pytest](https://docs.pytest.org/en/stable/) for all tests (unit, integration, and UI). Tests are located in the `tests/` directory and follow the naming convention `test_*.py`.
 
@@ -211,7 +208,7 @@ python -m pytest --cov=app --cov-report=xml
 
 - If pytest is not found and you haven't activated the venv, use `python -m pytest` (shown above) — this works regardless of PATH.
 
-## Formatting & Linting
+### Formatting & Linting
 
 Run these commands to format and lint your code:
 
@@ -237,7 +234,7 @@ This project uses `mypy` for static type checking. To run mypy checks:
 python -m mypy app tests crossSum.py
 ```
 
-## Recommended Workflow
+### Recommended Workflow
 
 Before committing code, run this checklist:
 
@@ -272,7 +269,7 @@ Before committing code, run this checklist:
 
 > This helps prevent CI failures. If CI fails, check the GitHub Actions tab for details and fix issues promptly.
 
-# :hammer_and_wrench: Standalone Executable
+## :hammer_and_wrench: Standalone Executable
 
 You can compile the Cross Sum Number application into a self-contained application folder using `PyInstaller`, which bundles everything needed to run it. However, please note:
 
@@ -312,7 +309,7 @@ To compile locally, follow these steps:
 
    > You can move the dist/CrossSum folder to your desktop or another location and run the executable from there. Just keep the entire folder together.
 
-# :handshake: Contributing
+## :handshake: Contributing
 
 **How to contribute:**
 
@@ -352,7 +349,7 @@ To compile locally, follow these steps:
 
 Thanks for contributing! 🎉
 
-# :page_facing_up: License
+## :page_facing_up: License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
