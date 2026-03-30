@@ -21,6 +21,8 @@
 </p>
 A Cross Sum Number is a simple and engaging Python app where users calculate the sum of the digits in a given number. This project features a user-friendly graphical interface built with the `Tkinter` library, allowing users to easily input a number and instantly see the sum of its digits.
 
+<br>
+
 ## :bookmark_tabs: Table of Contents
 
 - [:clapper: Demo Video](#clapper-demo-video)
@@ -32,7 +34,9 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 - [:handshake: Contributing](#handshake-contributing)
 - [:page_facing_up: License](#page_facing_up-license)
 
-   ## :clapper: Demo Video
+<br>
+
+## :clapper: Demo Video
 
 [![Demo Video](https://img.youtube.com/vi/I1cHkolX1NI/0.jpg)](https://youtu.be/I1cHkolX1NI)
 
@@ -69,6 +73,7 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 
 - [PyInstaller](https://www.pyinstaller.org/) — Build standalone executables.
 
+<br>
 
 ## :rocket: Getting Started
 
@@ -144,6 +149,8 @@ To get started:
    ```bash
    python crossSum.py
    ```
+
+<br>
 
 ## :test_tube: Running Tests, Linting, and Formatting
 
@@ -267,6 +274,8 @@ Before committing code, run this checklist:
    python -m pytest
    ```
 
+<br>
+
 > This helps prevent CI failures. If CI fails, check the GitHub Actions tab for details and fix issues promptly.
 
 ## :hammer_and_wrench: Standalone Executable
@@ -308,6 +317,8 @@ To compile locally, follow these steps:
    > Keep the folder contents together (do not remove `_internal` or other support files). The `CrossSum.exe` is platform-specific; to rebuild you need Python + PyInstaller on the target OS. Executables may be flagged by antivirus software; allow/verify as needed.
 
    > You can move the dist/CrossSum folder to your desktop or another location and run the executable from there. Just keep the entire folder together.
+
+<br>
 
 ## :handshake: Contributing
 
