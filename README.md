@@ -101,11 +101,16 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 To get started:
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/pedromst2000/Cross_Sum_Number_App.git
+   ```
+
+2. **Navigate to the project directory:**
+   ```bash
    cd Cross_Sum_Number_App
    ```
-2. **(Recommended) Create and activate a virtual environment:**
+3. **(Recommended) Create and activate a virtual environment:**
 
    Create the virtual environment:
 
@@ -135,7 +140,7 @@ To get started:
 
    > **Note:** Some dependencies may only work correctly inside the `.venv` virtual environment. It is highly recommended to use the virtual environment for all development and testing.
 
-3. **Install dependencies:**
+4. **Install dependencies:**
 
    ```bash
    python -m pip install --upgrade pip
@@ -151,7 +156,7 @@ To get started:
    >   ```
    > - For best results, always activate the `.venv` before installing or running anything.
 
-4. **Run the app:**
+5. **Run the app:**
    ```bash
    python crossSum.py
    ```
