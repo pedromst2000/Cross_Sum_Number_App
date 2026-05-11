@@ -56,24 +56,24 @@ A Cross Sum Number is a simple and engaging Python app where users calculate the
 
 **Core Technologies**
 
-- [Python 3.14+](https://www.python.org/) — Main programming language.
-- [Tkinter](https://docs.python.org/3/library/tkinter.html) — GUI framework.
-- [pip](https://pip.pypa.io/en/stable/) — Package manager.
+- [Python 3.14+](https://www.python.org/) - Main programming language.
+- [Tkinter](https://docs.python.org/3/library/tkinter.html) - GUI framework.
+- [pip](https://pip.pypa.io/en/stable/) - Package manager.
 
 **Testing**
 
-- [pytest](https://docs.pytest.org/en/stable/) — Testing framework.
-- [pytest-mock](https://github.com/pytest-dev/pytest-mock) — Mocking in tests.
-- [pytest-cov](https://pytest-cov.readthedocs.io/en/latest/) — Test coverage reporting.
-- [Hypothesis](https://hypothesis.readthedocs.io/en/latest/) — Property-based testing.
-- [codecov](https://codecov.io/) — Code coverage reporting service.
+- [pytest](https://docs.pytest.org/en/stable/) - Testing framework.
+- [pytest-mock](https://github.com/pytest-dev/pytest-mock) - Mocking in tests.
+- [pytest-cov](https://pytest-cov.readthedocs.io/en/latest/) - Test coverage reporting.
+- [Hypothesis](https://hypothesis.readthedocs.io/en/latest/) - Property-based testing.
+- [codecov](https://codecov.io/) - Code coverage reporting service.
 
 **Code Quality & Linting**
 
-- [Black](https://black.readthedocs.io/en/stable/) — Code formatter.
-- [flake8](https://flake8.pycqa.org/en/latest/) — Code linter.
-- [yamllint](https://yamllint.readthedocs.io/en/stable/) — YAML file linting.
-- [mypy](https://mypy-lang.org/) — Static type checking.
+- [Black](https://black.readthedocs.io/en/stable/) - Code formatter.
+- [flake8](https://flake8.pycqa.org/en/latest/) - Code linter.
+- [yamllint](https://yamllint.readthedocs.io/en/stable/) - YAML file linting.
+- [mypy](https://mypy-lang.org/) - Static type checking.
 
 **Packaging**
 
